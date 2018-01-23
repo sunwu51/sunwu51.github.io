@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>AngularJS</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <script src="js/angular.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="ctrl">
+    <div class="container-fluid">
+       <div class="jumbotron">
+           <h1>AngularJS基础</h1>
+       </div>
+        <div class="well">
+            <h2>1.ng-model绑定input元素</h2>
+            <input ng-model="model" />
+            <h4 ng-bind="model"></h4>
+        </div>
+
+        <div class="well">
+            <h2>2.ng-repeat遍历集合</h2>
+            <table class="table table-bordered table-border table-responsive table-hover">
+                <thead><tr><th>$index</th><th>id</th><th>name</th><th>salary</th></tr></thead>
+                <tbody>
+                    <tr ng-repeat="item in data"><td>{{$index}}</td><td>{{item.id}}</td><td>{{item.name}}</td><td>{{item.salary}}</td></tr>
+                </tbody>
+            </table>
+
+        </div>
+
+         <div class="well">
+            <h2>3.ng-click等事件</h2>
+            <button ng-click="clicked()">Click</button>
+            <button ng-dblclick="dblclicked()">Dblclick</button>
+            <button ng-mouseover="mouseovered()"  ng-mouseleave="mouseleaved()">{{over}}</button>
+        </div>
+
+        <div class="well">
+            <h2>4.orderBy、limitTo、filter等过滤器</h2>
+            <table class="table table-bordered table-border table-responsive table-hover">
+                <thead><tr><th>$index</th><th>id</th><th>name</th><th>salary</th></tr></thead>
+                <tbody>
+                    <tr ng-repeat="item in data|orderBy: 'salary'| limitTo:2:1"><td>{{$index}}</td><td>{{item.id}}</td><td>{{item.name}}</td><td>{{item.salary|currency}}</td></tr>
+                </tbody>
+            </table>
+           
+                <input ng-model="ftxt" />
+            
+            
+            
+            <table class="table table-bordered table-border table-responsive table-hover">
+                <thead><tr><th>$index</th><th>id</th><th>name</th><th>salary</th></tr></thead>
+                <tbody>
+                    <tr ng-repeat="item in data|filter:ftxt"><td>{{$index}}</td><td>{{item.id}}</td><td>{{item.name}}</td><td>{{item.salary}}</td></tr>
+                </tbody>
+            </table>         
+        </div>
+        
+
+        <div class="well">
+            <h2>5.自定义过滤器</h2>
+            <input ng-model="filterdata"  />
+            <h5>{{filterdata|myfilter}}</h5>
+        </div>
+
+        <div class="well">
+            <h2>6.ng-hide/show隐藏与显示</h2>
+            <button class="btn btn-default"  ng-click="toggle()">toggle</button>
+            <h5 ng-show="show">内容的隐藏与显示</h5>
+        </div>
+
+        <div class="well">
+            <h2>7.ng-include引入其他文件文本</h2>
+            <div ng-include="'part.html'"></div>
+        </div>
+
+        <div class="well">
+            <h2>8.$http异步http请求/jq的混用/$apply的绑定</h2>
+            <p>{{postback.postdata}}</p>
+            <div class="input-group">
+                <input ng-model="postdata" class="form-control" />
+                <div class="input-group-addon"><a href="#">search<span class="glyphicon glyphicon-search"></span></a></div>
+            </div>
+                <button ng-click="post()">HttpPost</button>
+                <button ng-click="post2()">HttpPost2</button>
+           
+        </div>
+
+        <div class="well">
+            <h2>9.自定义service</h2>            
+            <button ng-click="service()">MyService</button>
+        </div>
+    </div>
+    <script>
+
+    var app = angular.module('app', [])
+        .controller('ctrl', function ($scope,$http,$log,mservice) {
+            $scope.over = "Mouse";
+            $scope.data = [{ id: 1, name: '吴尧', salary: 10000 }, { id: 2, name: '李伟', salary: 8000 }, { id: 3, name: '赵帅', salary: 12000 }];
+            $scope.clicked = function () { alert('click'); };
+            $scope.dblclicked = function () { alert('dblclicked'); };
+            $scope.mouseovered = function () { $scope.over='Over' };
+            $scope.mouseleaved = function () { $scope.over = 'Left' };
+            $scope.filterdata = "123456789";
+            $scope.show = true;
+            $scope.toggle = function () {
+                $scope.show = !$scope.show;
+            };
+            $scope.post = function () {
+               
+                $http.post('/json').success(function (data) {
+                    alert(data.X);
+                });
+            };
+
+            $scope.post2 = function () {
+                //$http.post('/WS.asmx/echo', {postdata:$scope.postdata}).success(function (data) {
+                //    console.log(JSON.parse(data));
+                //});
+                $.post('/echo', { postdata: $scope.postdata }, function (data) {
+                   // var d = JSON.parse(data);
+                    $scope.$apply(function () {
+                        $scope.postback = data;
+                    });
+                })
+            }
+            $scope.service = function () {
+                mservice.fun1();
+            };
+        });
+    app.factory("mservice", function () {
+            return {
+                fun1: function () {
+                    alert(1);
+                },
+                fun2: function () {
+                    alert(2);
+                },
+            };
+        });
+        app.filter('myfilter', function () {
+            return function (it) {
+                if (it.length > 5) {
+                    return it.substring(0, 5);
+                }
+                else {
+                    var temp=it;
+                    while(temp.length<5)
+                        temp='x'+temp;
+                    return temp;
+                }
+
+            }
+    });
+
+</script>
+</body>
+
+</html>
+
+

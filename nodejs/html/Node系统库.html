@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Node系统库</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        .well{
+            background-color: #30bbbb;
+            font-size: 20px;
+        }
+        pre{
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+<div class="well"><h1>Node系统库</h1></div>
+<div class="container-fluid row">
+    <div class="col-md-6">
+        <pre>
+<b>http模块：</b>
+        上节中已经介绍
+
+<b>fs模块：</b>
+	操作文件：
+	var fs=require('fs');
+	fs.writeFile('1.txt','文件模块'，function(err){if(err)console.log(err);});
+	fs.appendFile('1.txt','续写'，function(err){if(err)console.log(err);});
+	fs.readFile('nodeJS.html', function (err, data) {
+	    if(err){console.log(err);return;}
+	    console.log(data.toString());
+	});
+
+<b>events模块：</b>
+	var EventEmitter=require('events').EventEmitter;
+	var myevent=new EventEmitter();
+	myevent.on('abc',function(data){
+		console.log('abc:'+data);
+	});
+	myevent.emit('abc','hello boy!');
+	输出abc:hello boy!
+    </pre>
+    </div>
+    <div class="col-md-6">
+        <pre>
+<b>net模块：</b>
+	socket服务端：
+	var net=require('net');
+	var server=net.createServer();
+	server.listen(10000);
+	server.on('connection',function(socket){
+		socket.on('data',function(data){
+			console.log(data.toString());
+		});
+		socket.on('end',function(){
+			console.log('end');
+		});
+		socket.on('close',function(){
+			console.log('close');
+		});
+		socket.on('error',function(err){
+			console.log(err);
+		});
+	});
+	socket客户端：
+	var net=require('net');
+	var socket=net.createConnection({host:'127.0.0.1',port:10000);
+	socket.on('data',function(data){
+		console.log(data.toString());
+	});
+	socket.on('error',function(err){
+	  	console.log(err)
+	});
+	以上是socket监听的主要的几个事件，如果发送数据则socket.write(buf/string);
+        </pre>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3响应式</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }code{
+             font-size: 18px;
+         }
+        .row{
+            margin-top: 15px;
+        }
+        .mar{
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="well">
+        <p>1媒体类型：link样式文件的时候可以指定media属性，只有在此类媒体下才会生效，完成不同设备的响应。主要的media类型有 All，Handheld、Screen等。
+        </p>
+        <p>2媒体特性：<b class="text-danger"> @media screen and(max-width:600px){css}</b> 指定电脑屏幕并且最大宽度不超过600时生效的CSS样式。还可以指定min-width,用and进行连接，也可以不指定媒体类型直接(min/max-width),一般我们可以通过从小到大设置min或者从大到小设置max来实现响应式。
+        </p>
+        <h4>前面介绍过这种写法<a href="http://microfrank.top/boot/www/综合应用.html">http://microfrank.top/boot/www/综合应用.html</a></h4>
+    </div>
+</div>
+</body>
+</html>

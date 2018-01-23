@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>model</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        pre{
+            width: 100%;
+            overflow-x: visible;
+            font-size: 18px;
+            color: #006600;
+        }
+        kbd{
+            font-size: 22px;
+        }
+        b{
+            color:purple;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <pre>
+<h1>Model</h1>
+    <b>☆自动验证器</b>：
+        <kbd>[Required]</kbd>:
+
+        字段不能为空或空字符串
+
+        <kbd>[Datatype(Datatype.xxx)]</kbd>:
+
+        验证数据类型，可以是EmailAddress、Date等,前端对应type属性，可以进行前端验证但是显示的msg不是这里的Errormsg,
+        要引入jqvalid的中文提示，否则是一个默认的英文提示
+
+        <kbd>[DisplayName=]</kbd>:
+
+        展示的Html.LabelFor/DisplayNameFor会显示这个值
+
+        <kbd>[StringLength(max,[MinimumLength=]]</kbd>:
+
+        字符串长度限定
+
+        <kbd>[Range(a,b)]</kbd>:
+
+        必须介于ab之间，也可用于非int如日期:[Range(typeof(DateTime),"01/01/2016","01/01/2017")]
+
+        <kbd>[Compare("另字段")]</kbd>:
+
+        校验字段相同
+
+        <kbd>[RegularExpression("正则")]</kbd>:
+
+        正则表达式验证，正则表达式是基于required的，range、compare、length都不需要require
+
+        <kbd>[remote]</kbd>:
+
+        用于必须和数据库交互的验证通过AJAX验证，使用时前两个参数为行为控制器，
+        这个行为传入参数为该字段，返回值为Json(bool,允许get)。
+        要注意使用时做双重验证，服务端再次验证，验证如果不对的话直接ModelState.AddModelError("username","用户名已存在");
+        然后判断模型验证状态。
+
+        <kbd>[DisplayFormat()]</kbd>:
+
+        格式化显示结果
+        日期：[DisplayFormat(DataFormatString="{0:dd/MM/yyyy HH/hh:mm:ss}")]
+        Null显示为xxx：[DisplayFormat(NullDisplayText="xxx")]
+
+    <b>☆客户端验证</b>：
+
+        以上验证方式配合jq.validate可以不用多写任何代码实现客户端验证。只需要将jq jq.validate jq.validate.unobtrusive三个js文件引入。另外确保appSetting中有如下设置，(默认都有)
+        &lt;add key="ClientValidationEnable" value="true"/&gt;
+        &lt;add key="UnobtrusiveJavaScriptEnable" value="true"/&gt;
+
+    <b>☆自定义验证</b>：
+
+        写一个类继承ValidationAttribute，复写bool IsValid(param)方法
+</pre>
+
+</div>
+</body>
+</html>

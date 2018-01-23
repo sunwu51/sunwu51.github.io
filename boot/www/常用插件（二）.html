@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>常用插件（二）</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2 class="text-info">导航栏</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;nav class=&quot;<span class="label label-danger">navbar navbar-default</span>&quot;&gt
+    &lt;ul class=&quot;<span class="label label-danger">nav navbar-nav</span>&quot;&gt;
+        &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;首页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;次页&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#&quot;&gt;三页&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p class=&quot;navbar-text&quot;&gt;我是文本&lt;/p&gt;
+    &lt;form class=&quot;<span class="label label-danger">navbar-form navbar-right</span>&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;input class=&quot;form-control&quot;&gt;
+            &lt;div class=&quot;input-group-btn&quot;&gt;
+                &lt;button class=&quot;btn btn-default&quot;&gt;
+                    搜索
+                    &lt;span style=&#39;margin-left: 10px&#39;class=&quot;glyphicon glyphicon-search&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/nav&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="padding:15px;padding-bottom:0px; border: 1px solid">
+                    <nav class="navbar navbar-default">
+                        <ul class="nav navbar-nav">
+                            <li class="active"><a href="#">首页</a></li>
+                            <li><a href="#">次页</a></li>
+                            <li><a href="#">三页</a></li>
+                        </ul>
+                        <p class="navbar-text">我是文本</p>
+                        <form class="navbar-form navbar-right">
+                            <div class="input-group">
+                                <input class="form-control">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default">
+                                        搜索
+                                        <span style='margin-left: 10px'class="glyphicon glyphicon-search"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-info">面包屑导航栏</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;ol class=&quot;<span class="label label-danger">breadcrumb</span>&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;礼服&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;男装&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;童装&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="padding:15px;padding-bottom:0px;border: 1px solid">
+                    <ol class="breadcrumb">
+                        <li><a href="#">礼服</a></li>
+                        <li><a href="#">男装</a></li>
+                        <li><a href="#">童装</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="text-info">分页</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;ol class=&quot;<span class="label label-danger">pager</span>&quot;&gt;
+    &lt;li class=&quot;<span class="label label-info">previous</span>&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;&lt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;<span class="label label-info">next</span>&quot;&gt;&lt;a href=&quot;#&quot;&gt;&gt;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="padding:15px;padding-bottom:0px;border: 1px solid">
+                    <ol class="pager">
+                        <li class="previous"><a href="javascript:;"><<</a></li>
+                        <li><a href="javascript:;">1</a></li>
+                        <li><a href="javascript:;">2</a></li>
+                        <li><a href="javascript:;">3</a></li>
+                        <li class="next"><a href="javascript:;">>></a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <h2 class="text-info">滚动条绑定</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;ul class=&quot;<span class="label label-danger">nav nav-tabs</span>&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#t1&quot;&gt;第一部分&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#t2&quot;&gt;第二部分&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#t3&quot;&gt;第三部分&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div <span class="label label-danger">data-spy=&quot;scroll&quot; data-offset="70"</span> style=&quot;height:200px;overflow: scroll&quot; &gt;
+    &lt;h1 id=&quot;t1&quot;&gt;第一部分内容&lt;/h1&gt;
+    &lt;p&gt;第一部分内容&lt;/p&gt;
+    &lt;h1 id=&quot;t2&quot;&gt;第二部分内容&lt;/h1&gt;
+    &lt;p&gt;第二部分内容&lt;/p&gt;
+    &lt;h1 id=&quot;t3&quot;&gt;第三部分内容&lt;/h1&gt;
+    &lt;p&gt;第三部分内容&lt;/p&gt;
+&lt;/div&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id='ex' style="padding:15px;padding-bottom:0px;border: 1px solid">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#t1">第一部分</a></li>
+                        <li><a href="#t2">第二部分</a></li>
+                        <li><a href="#t3">第三部分</a></li>
+                    </ul>
+                    <div  data-spy="scroll" data-offset="70" style="height:200px;overflow: scroll;" >
+                        <h1 id="t1">第一部分内容</h1>
+                        <p>第一部分内容</p><p>第一部分内容</p><p>第一部分内容</p><p>第一部分内容</p><p>第一部分内容</p><p>第一部分内容</p><p>第一部分内容</p>
+                        <h1 id="t2">第二部分内容</h1>
+                        <p>第二部分内容</p><p>第二部分内容</p><p>第二部分内容</p><p>第二部分内容</p><p>第二部分内容</p><p>第二部分内容</p><p>第二部分内容</p>
+                        <h1 id="t3">第三部分内容</h1>
+                        <p>第三部分内容</p><p>第三部分内容</p><p>第三部分内容</p><p>第三部分内容</p><p>第三部分内容</p><p>第三部分内容</p><p>第三部分内容</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="text-info">轮播图</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;div id=&quot;carousel&quot; class=&quot;<span class="label label-danger"> carousel slide</span>&quot; data-ride=&quot;carousel&quot; data-interval=&quot;1000&quot;&gt;
+    &lt;ol class=&quot;<span class="label label-danger">carousel-indicators</span>&quot;&gt;
+        &lt;li class=&quot;active&quot; <span class="label label-danger">data-target=&quot;#carousel&quot; data-slide-to=&quot;0&quot;</span>&gt;&lt;/li&gt;
+        &lt;li data-target=&quot;#carousel&quot; data-slide-to=&quot;1&quot; &gt;&lt;/li&gt;
+        &lt;li data-target=&quot;#carousel&quot; data-slide-to=&quot;2&quot; &gt;&lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;div class=&quot;<span class="label label-danger">carousel-inner</span>&quot;&gt;
+        &lt;img class=&quot;<span class="label label-danger">item active img-responsive</span>&quot; src=&quot;Naruto.jpg&quot;&gt;
+        &lt;img class=&quot;item img-responsive&quot; src=&quot;Naruto.jpg&quot;&gt;
+        &lt;img class=&quot;item img-responsive&quot; src=&quot;Naruto.jpg&quot;&gt;
+    &lt;/div&gt;
+    &lt;a href=&quot;#carousel&quot; data-slide=&quot;prev&quot; class=&quot;carousel-control left&quot; &gt;&lt;span class=&quot;glyphicon glyphicon-chevron-left&quot;&gt;&lt;/span&gt; &lt;/a&gt;
+    &lt;a href=&quot;#carousel&quot; data-slide=&quot;next&quot; class=&#39;carousel-control right&#39;&gt;&lt;span class=&quot;glyphicon glyphicon-chevron-right&quot;&gt;&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div style="padding:15px;padding-bottom:0px;border: 1px solid">
+                    <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="1000">
+                        <ol class="carousel-indicators">
+                            <li class="active" data-target="#carousel" data-slide-to="0"></li>
+                            <li data-target="#carousel" data-slide-to="1" ></li>
+                            <li data-target="#carousel" data-slide-to="2" ></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <img class="item active img-responsive" src="Naruto.jpg">
+                            <img class="item img-responsive" src="Naruto.jpg">
+                            <img class="item img-responsive" src="Naruto.jpg">
+                        </div>
+                        <a href="#carousel" data-slide="prev" class="carousel-control left" ><span class="glyphicon glyphicon-chevron-left"></span> </a>
+                        <a href="#carousel" data-slide="next" class='carousel-control right'><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="text-info">缩略图</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;div class=&quot;thumbnail&quot;&gt;
+    &lt;img src=&quot;Naruto.jpg&quot; class=&quot;img-responsive&quot;&gt;
+    &lt;div class=&quot;caption&quot;&gt;
+        &lt;h3&gt;缩略图介绍&lt;/h3&gt;
+        &lt;p&gt;一小段内容的讲解&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <img src="Naruto.jpg" class="img-responsive">
+                    <div class="caption">
+                        <h3>缩略图介绍</h3>
+                        <p>一小段内容的讲解</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <img src="Naruto.jpg" class="img-responsive">
+                    <div class="caption">
+                        <h3>缩略图介绍</h3>
+                        <p>一小段内容的讲解</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <img src="Naruto.jpg" class="img-responsive">
+                    <div class="caption">
+                        <h3>缩略图介绍</h3>
+                        <p>一小段内容的讲解</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-info">悬浮</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+悬浮本身意义不大，主要的用途是悬浮式侧面导航栏。要结合导航栏的相关，在综合应用中提及。
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1>Nothing</h1>
+            </div>
+        </div>
+        <hr>
+        <footer id="footer" style="text-align: center">
+            <div class="container">
+                <p>联系校长 | 举报导师 | 版权投诉</p>
+                <p>京备案1235436546542号</p>
+            </div>
+        </footer>
+    </div>
+   </body>
+</html>

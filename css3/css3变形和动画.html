@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3变形和动画</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }code{
+             font-size: 18px;
+         }
+        .row{
+            margin-top: 15px;
+        }
+        .mar{
+            margin: 15px 0;
+        }
+      #imgs img{
+          border: 1px solid;
+      }
+      #transition{
+          border:solid 1px;
+      }
+        #transition:hover{
+            transition: all 2s ease-in;
+            transform: rotate(20deg)
+        }
+        #animate{
+            animation: name 3s ease-in infinite alternate;
+        }
+        @keyframes name {
+            0%{
+                background: white;
+            }
+
+            100%{
+                background: red;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>transform改变位置 角度 比例等。</b></h2>
+                <p>可以接的函数有<b class="text-danger">translate(x,y)</b>改变位置原位置是0,0；<b class="text-danger">rotate(xdeg)</b>改变角度，
+                    <b class="text-danger">scale(0.4)</b>改变比例，<b class="text-danger">skew(xdeg,ydeg)</b>改变倾斜度，
+                    对于3d的变形有<b class="text-danger">translateXYZ</b>，<b class="text-danger">rotateXYZ</b>，<b class="text-danger">scaleXYZ</b>，其中值得注意的是rotate的3d版本和2d版本完全不同，3d版本是以这个轴为轴心旋转一定角度。2d则是绕着锚点旋转。
+                    <b class="text-danger">transform-origin</b>锚点位置。
+                    参数为x，y。可以为像素也可以是百分数，还可以是ltrbc五个方向。
+
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <div id="imgs">
+                    <code>无样式</code><br>
+                    <img src="logo1sm.jpg"><br>
+                    <code>transform:translate(100px,0) rotate(45deg) scale(.5)</code><br>
+                    <img src="logo1sm.jpg" style="transform:translate(100px,0) rotate(45deg) scale(.5)"><br>
+                    <code>transform:skewX(15deg)</code><br>
+                    <img src="logo1sm.jpg" style="transform:skewX(15deg)"><br>
+                    <code>transform-origin:默认/(left bottom)</code><br>
+                    <img src="logo1sm.jpg" style="transform:rotate(30deg)"><img src="logo1sm.jpg" style="transform:rotate(30deg);transform-origin: left bottom"><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>transform-style</b></h2>
+                <p>指定嵌套元素如何呈现，即设置在舞台元素。
+                    参数为flat默认和preserve-3d后者可以超出舞台展示3d。(实际测试是前者也可以原因不明)
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">没有示例</h2>
+                <p>因为测试出现了问题，大家自己测下</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>perspective</b></h2>
+                <p>指定观看者的高度，用于舞台元素。同样的效果用在变形元素是接在transform属性后的perspective()函数。附属属性<b class="text-danger">perspective-origin(x,y)</b>指定高度的根。
+                <br><b class="text-danger">即perspective属性用于舞台，perspective()函数用于演员</b>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code>transform:rotateX(40deg)</code><br>
+                <img src="logo1sm.jpg" style="border:solid 1px;transform:rotateX(40deg)"><br>
+                <code>transform: perspective(300px) rotateX(40deg)</code><br>
+                <img src="logo1sm.jpg" style="border:solid 1px;transform: perspective(300px) rotateX(40deg)"><br>
+                <b class="text-danger">千万注意perspective()函数一定要是transform的第一个参数</b><br>
+                <b class="text-danger">第二个的效果和为这个div容器添加perspective属性效果一样</b>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>backface-visibility旋转后图片背面是否展示</b></h2>
+                <p> 如果展示则是镜面的。
+                    参数<b class="text-danger">visible(默认)/hidden</b>
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <p>下面有两个对比图第二个因为hidden看不到了</p>
+                <img src="logo1sm.jpg" style="border:solid 1px;transform: perspective(500px) rotateY(120deg)">
+                <img src="logo1sm.jpg" style="outline:solid 1px;transform: perspective(500px) rotateY(120deg);backface-visibility: hidden">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>transition指定形变过渡，产生动画</b></h2>
+                <p>
+                    参数<b class="text-danger">1.all/none/自己指定如颜色、位置等</b> <b class="text-danger">2.执行时间</b> <b class="text-danger">3.动画函数</b> <b class="text-danger">4.延时</b>。 常用的为前三个
+                </p>
+                <p>注意直接写在style中，页面加载后就是执行完的结果，过渡一般用在触发伪类:hover:action或者Js中添加css</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code> #transition:hover{<br>
+                    transition: all 2s ease-in;<br>
+                    transform:rotate(20deg)
+                    }</code>
+                <br>
+                <b class="text-danger">鼠标悬浮会旋转，也可以通过JS设置事件触发时addClass/toggleClass或者attr('class','xx')</b>
+                <div style="margin-top:30px">
+                    <img id='transition'src="logo1sm.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>animation自定义动画</b></h2>
+                <p>
+
+                    参数<b class="text-danger">1帧动画名 2执行时间 3动画函数 4延时 5循环次数 6播放的方向</b> …后面还有几个参数但不常用。
+                    关于帧动画<b class="text-danger">@keyframes name{0%{css}60%{css}100%{css}}</b>这种形式，css可以写css代码如颜色变化，形变等。
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code> #animate{
+                    animation: name 3s ease-in infinite alternate;
+                    }<br>
+                    @keyframes name {
+                    0%{
+                    background: white;
+                    }
+                    100%{
+                    background: red;
+                    }
+                    }</code>
+                <br>
+                <p>注意alternate是偶数次正向播放奇数次反向播放</p>
+                <div id="animate" style="border: solid 1px;height: 30px;width: 30px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

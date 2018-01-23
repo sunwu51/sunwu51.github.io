@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Node第三方库</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        .well{
+            background-color: #30bbbb;
+            font-size: 20px;
+        }
+        pre{
+            font-size: 17px;
+        }
+        f{
+            color:firebrick;
+        }
+    </style>
+</head>
+<body>
+<div class="well"><h1>Node第三方库</h1></div>
+<div class="container-fluid">
+    <ul class="nav nav-tabs">
+        <li class="active" ><a data-toggle="tab"href="#express">express</a></li>
+        <li ><a  data-toggle="tab"href="#mysql">mysql</a></li>
+        <li ><a data-toggle="tab" href="#socketio">socket.io</a></li>
+        <li ><a data-toggle="tab" href="#socketioclient">socket.io-client</a></li>
+        <li ><a data-toggle="tab" href="#request">request</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane in active fade" id="express">
+            <pre>
+这个模块非常强大，以至于现在很少有人会用原生的http模块。
+以下是一个http服务器，驱动网页目录，响应post get请求的例子：
+<f>	var express=require('express');
+	var bodyParser=require('body-parser');
+	var app=express();
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({extended: true}));
+	app.use('/', express.static("www"));
+	app.listen(8888);
+	app.post('/a',function(req,res){
+		res.json(req.body);
+	});
+	app.get('/b',function(req,res){
+		res.write('Hello');
+		res.end();
+	});</f>
+以上的listen语句之前是驱动了一个网页服务器，你可以认为是自己建立了一个apache或者iis，并且将www文件夹设为网页的目录。
+post和get语句分别是对应两种请求的处理，如果post请求一个/a就会得到一模一样的请求的数据，如果是直接输入网址localhost:8889/b则会显示Hello。
+body-parser模块应用于express应用中，就能通过req.body得到请求体json对象格式。res.write(字符串);res.json(json对象);
+用express封装rest接口，需要跨域访问则添加如下代码：(跨域访问在angularjs访问时出现异常，但是jquery没有问题)
+<f>	app.all('*', function(req, res, next) {
+	    res.header("Access-Control-Allow-Origin", "*");
+	    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+	    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+	    res.header("X-Powered-By",' 3.2.1');
+	    res.header("Content-Type", "application/json;charset=utf-8");
+	    next();
+	});</f>
+            </pre>
+        </div>
+        <div class="tab-pane fade" id="mysql">
+            <pre>
+<b>基本用法：</b>
+<f>	var mysql  = require('mysql');
+	var connection = ysql.createConnection({
+	        host     : '127.0.0.1',  //主机
+	        user     : 'root',       //MySQL认证用户名
+	        password : '',           //MySQL认证用户密码
+	        port: '3306',            //端口号
+	        database:'mydb',         //数据库
+	});
+	connection.connect(function(err){
+	    if(err){
+	        console.log('[query] - :'+err);
+	        return;
+	    }
+	    console.log('[connection connect]  succeed!');
+	});
+	connection.query("delete from users where id>20", function(err, rows, fields) {
+	    if (err) {
+	        console.log('[query] - :'+err);
+	        return;
+	    }
+	    console.log( rows);
+	});
+	connection.end(function(err){
+	    if(err){
+	        return;
+	    }
+	    console.log('[connection end] succeed!');
+	});
+	connection.on("error", function () {
+    	console.log("数据库意外中断");
+    });</f>
+以上是mysql模块常用的三个函数：连接，查询，关闭；以及监听的错误事件。这四个才能保证连接的完整性，少一项都是不合理的。
+<b>连接池用法：</b>
+把上面的createServer改为createPool，getConnection获取连接，进行查询，查询成功后release释放连接，将连接返回给连接池。
+以下是封装好的一个连接池模块，只需要在主程序中require：var query=require('./mysql.js');query('sql语句',function(err,rows,fields){xx});
+<f>	var mysql=require("mysql");
+	var pool = mysql.createPool({
+	    host: 'localhost',
+	    user: 'root',
+	    password: '',
+	    database: 'mydb',
+	    port: 3306
+	});
+
+	var query=function(sql,callback){
+	    pool.getConnection(function(err,conn){
+	        if(err){
+	            callback(err,null,null);
+	        }else{
+	            conn.query(sql,function(qerr,vals,fields){
+	                //释放连接
+	                conn.release();
+	                //事件驱动回调
+	                callback(qerr,vals,fields);
+	            });
+	        }
+	    });
+	};
+
+	module.exports=query;</f>
+            </pre>
+        </div>
+        <div class="tab-pane fade" id="socketio">
+<pre>
+这个模块专门用来建立websocket，是非常简单好用的模块。socket.io依托http模块，与http共同占用一个端口。
+http服务我们常常会用express来建立，所以一般而言，用如下方式建立websocket服务器：
+<f>	var express=require('express');
+	var app=express();var server=require('http').createServer(app);
+	var io=require('socket.io').listen(server);
+	server.listen(11111);
+	io.on('connection',function(socket){
+		socket.on('error',function(err){});
+		socket.on('disconnect', function () {});
+		socket.on('myevent',function(data){
+			socket.emit(data);
+		});
+	});</f>
+以上便是websocket服务器的建立和监听的错误，断开和自定义事件。
+他与socket服务器的用法很像，但是更强大，结合了events模块的功能，能监听和激发自定义的事件。socket.emit('myevent',data);激发事件。
+网页部分：
+首先要引入这个模块提供的socket.io.js在这个js文件中定义了全局变量io，你可以在script标签中直接
+<f>	var socket=io.connect('ws://localhost:11111');
+	socket.on('someevent',function(data){
+		alert(data);
+	});
+	socket.emit('myevent','hello');</f>
+前后端的用法一致都是on监听自定义的事件，emit激发这些事件。
+</pre>
+        </div>
+        <div class="tab-pane fade" id="socketioclient">
+<pre>
+配合socket.io，用于建立websocket客户端：
+<f>	var socket= require('socket.io-client')('http://127.0.0.1:11111');
+	socket.on('error', function (err) {
+	    console.log("ws连接出错");
+	});
+	socket.on('someevent',function(data){
+		alert(data);
+	});
+	socket.emit('myevent','hello');</f>
+注意地址是用的http://这里一定不要用ws://。socket.io依托于http模块，从这里也能体现
+</pre>
+        </div>
+        <div class="tab-pane fade" id="request">
+<pre>
+用于发起http请求：
+<f>	var request=require('request');
+	var urlencode=require('urlencode');
+	var data = urlencode(JSON.stringify(jsondata));
+	var url = 'http://xxxx'+ data;
+	request.post(url, function (err, res, resdata){
+		JSON.parse(resdata);
+	});</f>
+</pre>
+        </div>
+    </div>
+</div>
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

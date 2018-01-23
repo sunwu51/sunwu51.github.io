@@ -1,0 +1,150 @@
+<!DOCTYPE html><html><head><title>SpringBoot 1.5.9</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h1 id="springboot-159">SpringBoot 1.5.9</h1>
+
+<p>注:所有示例参考我的<a href="https://github.com/sunwu51/SpringBootSamples" target="_blank">github仓库</a>  </p>
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#springboot-159">SpringBoot 1.5.9</a><ul>
+<li><a href="#1-controller">1. Controller</a></li>
+<li><a href="#2-filter">2. Filter</a></li>
+<li><a href="#3-thymeleaf">3. Thymeleaf</a></li>
+<li><a href="#4-dao">4. Dao</a></li>
+<li><a href="#5-springsecurity">5. SpringSecurity</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id="1-controller">1. Controller</h2>
+
+<p>配置url生效： <br>
+<code>@Controller</code>+<code>@RequestMapping</code>  </p>
+
+<p>请求参数： <br>
+<code>@RequestParam</code> get或formpost参数 <br>
+ <code>@RequestBody</code>   json请求体对象  </p>
+
+<p>返回视图： <br>
+<code>String</code> or <code>ModelAndView</code>  </p>
+
+<p>返回字符串： <br>
+<code>@ResponseBody</code></p>
+
+<p>返回json <br>
+<code>ResponseEntity&lt;Student&gt;</code></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line">Controller
+</div><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestController</span> </span>{
+</div><div class="hljs-line">    <span class="hljs-comment">//展现视图的两种写法</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//1 返回值直接是ModelAndView（如下）</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//2 返回值是String视图名，但是函数第一个参数是Model可追加属性</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//如果使用jsp做显示的话，需要添加tomcat的jsp支持的依赖</span>
+</div><div class="hljs-line">    <span class="hljs-comment">//如果没有用到jstl则可以不配置</span>
+</div><div class="hljs-line">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hello"</span>)
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">public</span> ModelAndView <span class="hljs-title">hello</span><span class="hljs-params">(@RequestParam(value=<span class="hljs-string">"name"</span>, required=<span class="hljs-keyword">false</span>, defaultValue=<span class="hljs-string">"World"</span>)</span> String name) </span>{
+</div><div class="hljs-line">        HashMap&lt;String,Object&gt; map=<span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+</div><div class="hljs-line">        map.put(<span class="hljs-string">"name"</span>,name);
+</div><div class="hljs-line">        map.put(<span class="hljs-string">"age"</span>,<span class="hljs-number">11</span>);
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ModelAndView(<span class="hljs-string">"hello"</span>,map);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/json"</span>)
+</div><div class="hljs-line">    <span class="hljs-meta">@ResponseBody</span>
+</div><div class="hljs-line">    <span class="hljs-function"><span class="hljs-keyword">public</span> ResponseEntity&lt;Student&gt; <span class="hljs-title">json</span><span class="hljs-params">()</span></span>{
+</div><div class="hljs-line">        Clz clz=<span class="hljs-keyword">new</span> Clz();
+</div><div class="hljs-line">        clz.setClzid(<span class="hljs-number">101</span>);
+</div><div class="hljs-line">        clz.setClazname(<span class="hljs-string">"一班"</span>);
+</div><div class="hljs-line">        Student student=<span class="hljs-keyword">new</span> Student();
+</div><div class="hljs-line">        student.setName(<span class="hljs-string">"小明"</span>);
+</div><div class="hljs-line">        student.setClz(clz);
+</div><div class="hljs-line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseEntity&lt;Student&gt;(student,HttpStatus.OK);
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h2 id="2-filter">2. Filter</h2>
+
+<p>两种生效方式：</p>
+
+<ul><li>实现Filter接口，注入为Bean  </li>
+<li>注入一个FilterRegisterationBean为Bean，其中设置了Filter Url-Pattern和Order</li>
+</ul>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line">Component
+</div><div class="hljs-line"><span class="hljs-meta">@Order</span>(<span class="hljs-number">1</span>)<span class="hljs-comment">//越小优先</span>
+</div><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{...}
+</div></code></pre>
+
+
+
+<h2 id="3-thymeleaf">3. Thymeleaf</h2>
+
+<p>默认支持的模板，放到<code>resource/templates</code>下<code>.html</code>。例如:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-html hljs xml"><div class="hljs-line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">"http://www.thymeleaf.org"</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>/&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Hello Thymeleaf!<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">th:text</span>=<span class="hljs-string">"'Hello, ' + ${name} + '!'"</span> /&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">th:text</span>=<span class="hljs-string">"'Your age is ' + ${age} + '!'"</span> /&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</div></code></pre>
+
+
+
+<h2 id="4-dao">4. Dao</h2>
+
+<p>使用<code>SpringData JPA</code> <br>
+entity:</p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-meta">@Entity</span>
+</div><div class="hljs-line"><span class="hljs-meta">@Data</span><span class="hljs-comment">//引入lombok</span>
+</div><div class="hljs-line"><span class="hljs-meta">@JsonIgnoreProperties</span>(value = { <span class="hljs-string">"hibernateLazyInitializer"</span>, <span class="hljs-string">"handler"</span> })
+</div><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
+</div><div class="hljs-line">    <span class="hljs-meta">@Id</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> sid;
+</div><div class="hljs-line">    <span class="hljs-keyword">private</span> String name;
+</div><div class="hljs-line">    <span class="hljs-comment">//多对一需要以下俩注解</span>
+</div><div class="hljs-line">    <span class="hljs-meta">@ManyToOne</span>(fetch = FetchType.LAZY)
+</div><div class="hljs-line">    <span class="hljs-meta">@JoinColumn</span>(name=<span class="hljs-string">"cid"</span>)
+</div><div class="hljs-line">    <span class="hljs-comment">//如果不想显示外联json则加以下俩注解详见仓库</span>
+</div><div class="hljs-line">    <span class="hljs-meta">@JsonIdentityInfo</span>(generator = ObjectIdGenerators.PropertyGenerator.class, property = <span class="hljs-string">"cid"</span>)
+</div><div class="hljs-line">    <span class="hljs-meta">@JsonIdentityReference</span>(alwaysAsId = <span class="hljs-keyword">true</span>)
+</div><div class="hljs-line">    <span class="hljs-keyword">private</span> Claz claz;
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p>repository:</p>
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">StudentDao</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Student</span>,<span class="hljs-title">Integer</span>&gt; </span>{
+</div><div class="hljs-line">}
+</div></code></pre>
+
+
+
+<h2 id="5-springsecurity">5. SpringSecurity</h2>
+<style>
+#readme, #images_area{
+	display:block
+}</style>
+<p>参考<a href="https://gist.github.com/sunwu51/eac8f64809ad934e9513ee2887980987" target="_blank">gist</a>和仓库代码。以下直接将gits内容贴过来。</p></div></body></html><script src="https://gist.github.com/sunwu51/eac8f64809ad934e9513ee2887980987.js"></script>

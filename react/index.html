@@ -1,0 +1,213 @@
+<!DOCTYPE html><html><head><title>React</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="react">React</h1>
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#react">React</a></li>
+<li><a href="#1-组件基本">1 组件基本</a></li>
+<li><a href="#2-生命周期">2 生命周期</a></li>
+<li><a href="#3-小知识点">3 小知识点</a></li>
+<li><a href="#4-redux">4 Redux</a></li>
+<li><a href="#5-reduxthunk">5 ReduxThunk</a></li>
+<li><a href="#6-reactrouterdom">6 ReactRouterDom</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<h1 id="1-组件基本">1 组件基本</h1>
+
+<pre class="prettyprint hljs-dark"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
+</div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hello</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+</div><div class="hljs-line">  render () {
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">className</span>=<span class="hljs-string">'message-box'</span>&gt;</span>
+</span></div><div class="hljs-line">      Hello {this.props.name}
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<h1 id="2-生命周期">2 生命周期</h1>
+
+<p>Mounting</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs delphi"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-params">(props)</span>                             <span class="hljs-title">Before</span> <span class="hljs-title">rendering</span> #
+</span></div><div class="hljs-line"><span class="hljs-title">componentWillMount</span><span class="hljs-params">()</span>                              <span class="hljs-title">Don</span>’<span class="hljs-title">t</span> <span class="hljs-title">use</span> <span class="hljs-title">this</span> #
+</div><div class="hljs-line"><span class="hljs-title">render</span><span class="hljs-params">()</span>                                                  <span class="hljs-title">Render</span> #
+</div><div class="hljs-line"><span class="hljs-title">componentDidMount</span><span class="hljs-params">()</span>              <span class="hljs-title">After</span> <span class="hljs-title">rendering</span> <span class="hljs-params">(DOM available)</span> #
+</div><div class="hljs-line"><span class="hljs-title">componentWillUnmount</span><span class="hljs-params">()</span>                        <span class="hljs-title">Before</span> <span class="hljs-title">DOM</span> <span class="hljs-title">removal</span> #
+</div><div class="hljs-line"><span class="hljs-title">componentDidCatch</span><span class="hljs-params">()</span>                           <span class="hljs-title">Catch</span> <span class="hljs-title">errors</span> <span class="hljs-params">(16+)</span> #
+</div></code></pre>
+
+<p>Updating</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs haxe"><div class="hljs-line">componentWillReceiveProps (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>)           Use setState() <span class="hljs-keyword">here</span>
+</div><div class="hljs-line">shouldComponentUpdate (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>, <span class="hljs-keyword">new</span><span class="hljs-type">State</span>)     Skips render() <span class="hljs-keyword">if</span> returns <span class="hljs-literal">false</span>
+</div><div class="hljs-line">componentWillUpdate (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>, <span class="hljs-keyword">new</span><span class="hljs-type">State</span>)       Can’t use setState() <span class="hljs-keyword">here</span>
+</div><div class="hljs-line">render()                                       Render
+</div><div class="hljs-line">componentDidUpdate (prevProps, prevState)      Operate on the DOM <span class="hljs-keyword">here</span>
+</div></code></pre>
+
+
+
+<h1 id="3-小知识点">3 小知识点</h1>
+
+<p><code>this.props.children</code>组件内部的其他组件</p>
+
+<p>jsx中<code>ref</code>属性，指向dom元素本身，可直接操作dom</p>
+
+<h1 id="4-redux">4 Redux</h1>
+
+<p>React基本的count例子： <br>
+在jsfiddle中查看<a href="http://jsfiddle.net/sunwu51/3mgx04e6/" target="_blank">这个例子</a></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
+</div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Count</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
+</div><div class="hljs-line">  <span class="hljs-keyword">constructor</span>(props){
+</div><div class="hljs-line">    <span class="hljs-keyword">super</span>(props);
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.state={<span class="hljs-attr">count</span>:<span class="hljs-number">0</span>}
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">  handleUp(){
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">count</span>:<span class="hljs-keyword">this</span>.state.count+<span class="hljs-number">1</span>});
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">  handleDown(){
+</div><div class="hljs-line">    <span class="hljs-keyword">this</span>.setState({<span class="hljs-attr">count</span>:<span class="hljs-keyword">this</span>.state.count<span class="hljs-number">-1</span>});
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">  render () {
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> (
+</div><div class="hljs-line">        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+</span></div><div class="hljs-line">            <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{this.state.count}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div><div class="hljs-line">            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleUp.bind(this)}</span>&gt;</span>+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">            <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{this.handleDown.bind(this)}</span>&gt;</span>-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line">    );
+</div><div class="hljs-line">  }
+</div><div class="hljs-line">}
+</div><div class="hljs-line">ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Count</span>/&gt;</span></span>,mountDom);
+</div></code></pre>
+
+<p>Redux基本的count例子： <br>
+在jsfiddle中查看<a href="http://jsfiddle.net/sunwu51/nhoezL7r/" target="_blank">这个例子</a></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> { createStore,combineReducers } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> { Provider,connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//reducer</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myReducer</span>(<span class="hljs-params">state=<span class="hljs-number">0</span>,action</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(action.type == <span class="hljs-string">"count/up"</span>) {
+</div><div class="hljs-line">      <span class="hljs-keyword">return</span> state+<span class="hljs-number">1</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(action.type == <span class="hljs-string">"count/down"</span>) {
+</div><div class="hljs-line">      <span class="hljs-keyword">return</span> state<span class="hljs-number">-1</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> state;
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reducer=combineReducers({<span class="hljs-attr">count</span>:myReducer})
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//store</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> store = createStore(reducer);
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//component</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Count</span>(<span class="hljs-params">{dispatch,count}</span>)</span>{   
+</div><div class="hljs-line">  <span class="hljs-keyword">return</span> (
+</div><div class="hljs-line">    <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+</span></div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{count}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span>=&gt;</span>dispatch({type:"count/up"})}&gt;+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">        <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span>=&gt;</span>dispatch({type:"count/down"})}&gt;-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line">  );
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> Newcount=connect(<span class="hljs-function">(<span class="hljs-params">state</span>)=&gt;</span>({<span class="hljs-attr">count</span>:state.count}))(Count)
+</div><div class="hljs-line">
+</div><div class="hljs-line">ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">Newcount</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span></span>,mountDom);
+</div></code></pre>
+
+
+
+<h1 id="5-reduxthunk">5 ReduxThunk</h1>
+
+<p>处理异步事件 <br>
+在jsfiddle中查看<a href="http://jsfiddle.net/sunwu51/ux0x9z80/" target="_blank">这个例子</a></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> { createStore,combineReducers,applyMiddleware  } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> { Provider,connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> thunk <span class="hljs-keyword">from</span> <span class="hljs-string">'redux-thunk'</span>
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//reducer</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">myReducer</span>(<span class="hljs-params">state=<span class="hljs-number">0</span>,action</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(action.type == <span class="hljs-string">"count/up"</span>) {
+</div><div class="hljs-line">      <span class="hljs-keyword">return</span> state+<span class="hljs-number">1</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>(action.type == <span class="hljs-string">"count/down"</span>) {
+</div><div class="hljs-line">      <span class="hljs-keyword">return</span> state<span class="hljs-number">-1</span>;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> state;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> reducer=combineReducers({<span class="hljs-attr">count</span>:myReducer},applyMiddleware(thunk))
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//store</span>
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> store = createStore(reducer,applyMiddleware(thunk));
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">asyncf</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">dispatch</span>)=&gt;</span>{setTimeout(<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>dispatch({<span class="hljs-attr">type</span>:<span class="hljs-string">"count/down"</span>}),<span class="hljs-number">1000</span>)}
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-comment">//component</span>
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Count</span>(<span class="hljs-params">{dispatch,count}</span>)</span>{
+</div><div class="hljs-line">    <span class="hljs-keyword">return</span> (
+</div><div class="hljs-line">        <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+</span></div><div class="hljs-line">      <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>{count}<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</div><div class="hljs-line">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span>=&gt;</span>dispatch({type:"count/up"})}&gt;+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span>=&gt;</span>dispatch({type:"count/down"})}&gt;-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">      <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">onClick</span>=<span class="hljs-string">{()</span>=&gt;</span>dispatch(asyncf())}&gt;delay-<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</div><div class="hljs-line">    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</div><div class="hljs-line">  );    
+</div><div class="hljs-line">}
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> Newcount=connect(<span class="hljs-function">(<span class="hljs-params">state</span>)=&gt;</span>({<span class="hljs-attr">count</span>:state.count}))(Count)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">let</span> App =<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{ 
+</div><div class="hljs-line">  <span class="hljs-keyword">return</span> <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Provider</span> <span class="hljs-attr">store</span>=<span class="hljs-string">{store}</span>&gt;</span>
+</span></div><div class="hljs-line">           <span class="hljs-tag">&lt;<span class="hljs-name">Newcount</span>/&gt;</span>
+</div><div class="hljs-line">         <span class="hljs-tag">&lt;/<span class="hljs-name">Provider</span>&gt;</span>
+</div><div class="hljs-line">};
+</div><div class="hljs-line">
+</div><div class="hljs-line">ReactDOM.render(<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">App</span>/&gt;</span></span>
+</div><div class="hljs-line">,<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'root'</span>));
+</div></code></pre>
+
+
+
+<h1 id="6-reactrouterdom">6 ReactRouterDom</h1>
+
+<p>早期版本是react-router，4.0之后react-router-dom中的内容包括了前者，并进行了扩充，可以只使用后者。</p>
+
+<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> {Link,BrowserRouter,Switch, Route} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+</div><div class="hljs-line"><span class="hljs-comment">//......</span>
+</div><div class="hljs-line"><span class="hljs-comment">//......</span>
+</div><div class="hljs-line"><span class="hljs-comment">//&lt;Link to="/hi"&gt; 产生一个超链接</span>
+</div><div class="hljs-line">ReactDOM.render(
+</div><div class="hljs-line">    &lt;Provider store={store}&gt;
+</div><div class="hljs-line">        &lt;BrowserRouter&gt;
+</div><div class="hljs-line">            &lt;Switch&gt;
+</div><div class="hljs-line">                &lt;Route exact path="/" component={Con} /&gt;
+</div><div class="hljs-line">                &lt;Route exact path="/hi" component={Hi} /&gt;
+</div><div class="hljs-line">            &lt;/Switch&gt;
+</div><div class="hljs-line">        &lt;/BrowserRouter&gt;
+</div><div class="hljs-line">    &lt;/Provider&gt;
+</div><div class="hljs-line">    ,
+</div><div class="hljs-line">    document.getElementById("root")
+</div><div class="hljs-line">);
+</div></code></pre></div></body></html>

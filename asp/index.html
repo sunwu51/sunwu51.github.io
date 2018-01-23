@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <title>asp.net mvc</title>
+    <style>
+        .inline{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><a href="view.html">View</a></h1>
+        <div class="well">
+            <h3 class="inline"><kbd>Html工具</kbd></h3>
+            <h3 class="inline"><kbd>Html编码</kbd></h3>
+            <h3 class="inline"><kbd>Url工具</kbd></h3>
+        </div>
+        <!--Html工具：textbox、textboxfor、editor、editorfor、display、displayfor、displayname、displaynamefor、radiobuttonlist、checkboxlist、ListBox-->
+        <!--Html编码：encode、Raw-->
+        <!--Url工具：content、action-->
+        <h1><a href="model.html">Model</a></h1>
+        <div class="well">
+            <h3 class="inline"><kbd>验证器</kbd></h3>
+            <h3 class="inline"><kbd>模型传递</kbd></h3>
+            <h3 class="inline"><kbd>Linq</kbd></h3>
+        </div>
+        <h1><a href="controller.html">Controller</a></h1>
+        <div class="well">
+            <h3 class="inline"><kbd>过滤器</kbd></h3>
+            <h3 class="inline"><kbd>行为返回类型</kbd></h3>
+            <h3 class="inline"><kbd>Linq</kbd></h3>
+        </div>
+    </div>
+    <!--model-->
+        <!--验证:[Datatype(Datatype.xxx)]、[ReadOnly(true)]、[ValidateInput(false)]、[StringLength(max,[MinimumLength=xx],[errormesxx=xx])]、[Range()]、[Remote("行为","控制器",ErrorMessage="用户名已存在")]、[RegularExpression("正则")]、自定义验证-->
+    <!--controller-->
+        <!--过滤器：[HttpPost/HttpGet]、[ActionName("xxx")]、[Authorize/AllowAnonymous]、[ChildActionOnly]、[OutputCache(Duration=10)]、[RequireHttps]、自定义身份过滤-->
+    <!--其他-->
+        <!--元数据、母版页、错误页、分页工具、客户端验证、ajax-->
+</body>
+</html>

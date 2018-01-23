@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title><link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="modal fade" data-backdrop="static" id="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button class="close" data-dismiss="modal"><span>&times;</span></button>
+                    <br>
+                </div>
+                <div class="modal-body">
+                    检测到您还未登录本网站，<br>
+                    请先登录后在操作！
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-info">登陆</button>
+                    <button class="btn btn-default">注册</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<button class="btn btn-default" id="btn">点击弹出</button>
+<script>
+    $('#btn').click(function () {
+        $('#dialog').modal('show');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Controller</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        pre{
+            width: 100%;
+            overflow-x: visible;
+            font-size: 18px;
+            color: #006600;
+        }
+        kbd{
+            font-size: 22px;
+        }
+        b{
+            color:purple;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<pre>
+<h1>Controller</h1>
+<b>☆过滤器</b>：
+
+    <kbd>[HttpPost/HttpGet]</kbd>:
+
+    过滤请求方式
+
+    <kbd>[ActionName("xx")]</kbd>:
+
+    过滤行为名
+
+    <kbd>[Authorize/AllowAnonymous]</kbd>：
+
+    权限过滤
+
+    <kbd>[ChildActionOnly]</kbd>:
+
+    只能被其他行为调用，不能单独被前端访
+
+    <kbd>[OutputCache]</kbd>:
+
+    缓存页面，如果没有参数或者参数相同才去调用缓存[OutputCache(Duration=10)]缓存时间10s
+
+    <kbd>[ValidateInput(false)]</kbd>:
+
+    关闭XSS保护，能接收敏感数据
+
+    <kbd>[RequireHttps]</kbd>：
+
+    强行转https页面
+<b>☆自定义身份过滤</b>：
+
+    继承AuthorizeAttribute，override OnAuthorization方法
+    public override void OnAuthorization(AuthorizationContext filterContext)
+    {
+        if (filterContext.HttpContext.Session["xxx"]!=null)
+        {
+            return;
+        }
+        else {
+            filterContext.Result = new RedirectResult(new UrlHelper(filterContext.RequestContext).Action("About"));
+        }
+    }
+<b>☆Other</b>
+    删除默认的权限认证：
+    新建mvc项目怎么删掉原来的用户认证系统，直接删除startup.cs和appstart文件夹下另一个startup类的部分文件，
+    然后配置文件appsettings中加入&lt;add key="owin:AutomaticAppStartup" value="false" /&gt;内容即可。
+</pre>
+</div>
+</body>
+</html>

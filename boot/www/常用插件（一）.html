@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>常用插件（一）</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <h2 class="text-info">普通列表listgroup</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>                        &lt;ul class="list-group"&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="list-group-item"&gt;1.ul.list-group&lt;/li&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="list-group-item"&gt;2.li.list-group-item&lt;/li&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="list-group-item active"&gt;3.active可以变蓝&lt;span class="badge"&gt;1&lt;/span&gt; &lt;/li&gt;<br/>&lt;/ul&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <ul class="list-group">
+                        <li class="list-group-item">1.ul.list-group</li>
+                        <li class="list-group-item">2.li.list-group-item</li>
+                        <li class="list-group-item active">3.active可以变蓝<span class="badge">1</span> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="text-info">下拉列表dropdown</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;div class="dropdown"&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" class="btn btn-default" data-toggle="dropdown"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;下拉列表&lt;span class="caret"&gt;&lt;/span&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/a&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul class="dropdown-menu"&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;li&gt;&lt;a href="#"&gt;1.整体div.dropdown&lt;/a&gt;&lt;/li&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &lt;li&gt;&lt;a href="#"&gt;2.触发器data-toggle&lt;/a&gt;&lt;/li&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &lt;li&gt;&lt;a href="#"&gt;3.数据容器ul.dropdown-menu&lt;/a&gt;&lt;/li&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>&lt;/div&gt;
+                    </code>
+                    <code>
+                       <hr> &lt;div class="btn-group"&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" class="btn btn-default"&gt;下拉列表&lt;/a&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"&gt;&lt;span class="caret"&gt;&lt;/span&gt;&lt;/a&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul class="dropdown-menu"&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;li&gt;&lt;a href="#"&gt;1.整体div.dropdown&lt;/a&gt;&lt;/li&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;li&gt;&lt;a href="#"&gt;2.触发器data-toggle&lt;/a&gt;&lt;/li&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;li&gt;&lt;a href="#"&gt;3.数据容器ul.dropdown-menu&lt;/a&gt;&lt;/li&gt;<br/>                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>                        &lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <div id='ee' class="dropdown" >
+                        <a id="dd" href="#" class="btn btn-default" data-toggle="dropdown" data-trigger="hover">下拉列表<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">1.整体div.dropdown</a></li>
+                            <li><a href="#">2.触发器data-toggle</a></li>
+                            <li><a href="#">3.数据容器ul.dropdown-menu</a></li>
+                        </ul>
+                    </div>
+                    <script>
+                        $('#ee').on('shown.bs.dropdown',function () {
+                            alert('show');
+                        })
+                    </script>
+                    <div class="btn-group">
+                       <a href="#" class="btn btn-default">下拉列表</a><a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">1.整体div.dropdown</a></li>
+                                <li><a href="#">2.触发器data-toggle</a></li>
+                                <li><a href="#">3.数据容器ul.dropdown-menu</a></li>
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="text-info">模态框modal</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;a href="#" class="btn btn-default" data-toggle="modal" data-target="#modal" data-backdrop="static"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;弹出模态框<br/>                    &lt;/a&gt;<br/>                    &lt;div class="modal" id="modal"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-dialog"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-content"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-header"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Welcome to Modal&lt;span class="close" data-dismiss="modal"&gt;&times;&lt;/span&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-body"&gt;是否离开？&lt;/div&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="modal-footer"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-info" data-dismiss="modal"&gt;确定&lt;/button&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-warning" data-dismiss="modal"&gt;取消&lt;/button&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                    &lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <a href="#" class="btn btn-default" data-toggle="modal" data-target="#modal" data-backdrop="static">
+                        弹出模态框
+                    </a>
+                    <div class="modal" id="modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Welcome to Modal<span class="close" data-dismiss="modal">&times;</span>
+                                </div>
+                                <div class="modal-body">是否离开？</div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-info" data-dismiss="modal">确定</button>
+                                    <button class="btn btn-warning" data-dismiss="modal">取消</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#modal').modal({
+                'show':false,
+            });
+            $('#modal').on('shown.bs.modal', function () {
+                alert('shown');
+            })
+        </script>
+
+
+        <h2 class="text-info">折叠框collapse</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;button class="btn btn-default" data-toggle="collapse" data-target="#collapse"&gt;折叠框&lt;/button&gt;<br/>                    &lt;div class="collapse" id="collapse"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h5&gt;折叠区域&lt;/h5&gt;<br/>                    &lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <button class="btn btn-default" data-toggle="collapse" data-target="#collapse">折叠框</button>
+                    <div class="collapse" id="collapse">
+                        <h5>折叠区域</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <h2 class="text-info">标签页tab</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;ul class="nav nav-tabs"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="active"&gt;&lt;a href="#tab1" data-toggle="tab"&gt;tab1&lt;/a&gt;&lt;/li&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#tab2" data-toggle="tab"&gt;tab2&lt;/a&gt;&lt;/li&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;a href="#tab3" data-toggle="tab"&gt;tab3&lt;/a&gt;&lt;/li&gt;<br/>                    &lt;/ul&gt;<br/>                    &lt;div class="tab-content"&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="tab-pane in active fade" id="tab1"&gt;第一个标签内容&lt;/div&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="tab-pane fade" id="tab2"&gt;第二个标签内容&lt;/div&gt;<br/>                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="tab-pane fade" id="tab3"&gt;第三个标签内容&lt;/div&gt;<br/>                    &lt;/div&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab1" data-toggle="tab">tab1</a></li>
+                        <li><a href="#tab2" data-toggle="tab">tab2</a></li>
+                        <li><a href="#tab3" data-toggle="tab">tab3</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane in active fade" id="tab1">第一个标签内容</div>
+                        <div class="tab-pane fade" id="tab2">第二个标签内容</div>
+                        <div class="tab-pane fade" id="tab3">第三个标签内容</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h2 class="text-info">工具框tooltip</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;a id="tootip" href="javascript:;" data-toggle="tooltip" data-html="true" title="&lt;h4&gt;title&lt;/h4&gt;"&gt;工具提示框&lt;/a&gt;
+                        <br>&lt;script&gt;<br/>            $('#tootip').tooltip();<br/>        &lt;/script&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <a id="tootip" href="javascript:;" data-toggle="tooltip" data-html="true" title="<h4>title</h4>">工具提示框</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#tootip').tooltip();
+        </script>
+
+
+        <h2 class="text-info">弹出框popover</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;a id="popover" href="javascript:;" data-toggle="popover" data-html="true" data-trigger="hover" data-content="&lt;h4&gt;content&lt;/h4&gt;" title="title"&gt;弹出框&lt;/a&gt;<br/>
+                        &lt;script&gt;<br/>            $('#popover').popover();<br/>        &lt;/script&gt;
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <a id="popover" href="javascript:;" data-toggle="popover" data-html="true" data-trigger="hover" data-content="<h4>content</h4>" title="title">弹出框</a>
+                </div>
+            </div>
+        </div>
+        <script>
+            $('#popover').popover();
+        </script>
+
+
+        <h2 class="text-info">警告框alert</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        &lt;div id="alert" href="javascript:;" data-toggle="alert" class="alert alert-success"&gt;警告框&lt;span class="close" data-dismiss="alert"&gt;&times;&lt;/span&gt;&lt;/div&gt;<br/>
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <div id="alert" href="javascript:;" data-toggle="alert" class="alert alert-success">警告框<span class="close" data-dismiss="alert">&times;</span></div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-info">data控件的Js控制和事件监听</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <code>
+                        小节：Js方式的控件和事件的监听，首先最重要的就是找到这个监听者。他不是触发者，而是数据者或者总体容器，是css为这个模式的东西。
+                            例如：下拉监听者div.dropdown;模态框监听者div.modal; $("div[class=collapse]").collapse('show');$("div[class=modal]").modal('show');下拉的show不好用。
+                    </code>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div  style="padding: 15px;border: 1px solid">
+                    <button class="btn btn-default" id="btn-show">全部展开</button>
+                </div>
+            </div>
+        </div>
+        <script>
+        </script>
+
+
+    </div>
+</body>
+</html>

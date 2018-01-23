@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <button class="btn btn-default" data-toggle="modal" data-target="#dialog" data-backdrop="static"></button>
+    <div class="modal" id="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><span class="close" data-dismiss="modal">&times;</span></div>
+                <div class="modal-body">确定要离开？</div>
+                <div class="modal-footer"><button class="btn btn-info">确定</button><button class="btn btn-info" id="cancel">取消</button></div>
+            </div>
+        </div>
+    </div>
+
+<div class="dropdown">
+    <button class="btn btn-default" data-toggle="dropdown">xiala<span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li>kdsa</li>
+    </ul>
+    </div>
+    <div class="container">
+        <kbd>颜色加深</kbd>
+        <code>代码专用</code>
+    </div>
+
+
+
+    <script>
+
+    $('#cancel').click(function () {
+        $('#dialog').modal('hide');
+    })
+</script>
+</body>
+</html>

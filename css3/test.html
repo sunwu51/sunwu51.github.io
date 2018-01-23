@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script>
+//        $(function () {
+//            $('div').mouseover(
+//                    function () {
+//                        console.log('in');
+//                        $(this).attr('class','d');
+////                        $(this).removeClass("e");
+////                       $(this).addClass("d");
+//                    }
+//            );
+//            $('div').mouseleave(
+//                    function () {
+//                        console.log('out');
+//                        $(this).attr('class','e');
+//                    }
+//            );
+//        })
+    </script>
+    <style>
+        .d{
+            /*transition: all 2s ease-in-out;*/
+            transform:rotateX(10deg);
+
+            transform-style: preserve-3d;
+            transform-origin: 0 0;
+        }
+        .e{
+            transition: all 2s ease-in-out;
+            transform:translate(0px,0px);
+            transform-origin: 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div  style="border: 1px solid; transform-style: flat;">
+        <img  src="logo1.JPG" style="margin-left:40%;border:1px solid; transform: perspective(500px) rotateY(130deg);backface-visibility: hidden">
+      </div>
+</body>
+</html>

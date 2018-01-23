@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MVC-Thinkphp</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        pre{
+            font-size:14px ;
+            line-height: 2;
+        }
+        .jumbotron{
+            background-image: url("bootstrap-3.3.5-dist/img/MT.jpg");
+            margin-bottom: 0;
+        }
+         kbd{
+             font-size: 20px;
+             background-color: darkseagreen;
+             color: snow;
+         }
+        b{
+	    line-height:1;
+            font-size:18px;
+            color:#00b3ee;
+        }
+
+    </style>
+</head>
+<body data-spy="scroll" data-target=".hidden-sm">
+    <div class="jumbotron">
+        <div class="container">
+            <h1 style="color: whitesmoke">ThinkPHP基础</h1>
+        </div>
+    </div>
+    <div class="container-fluid" style="background-color:oldlace ;padding: 20px 60px">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#B" data-toggle="tab">基础知识</a></li>
+            <li><a href="#M" data-toggle="tab">Model</a></li>
+            <li><a href="#V" data-toggle="tab">View</a></li>
+            <li><a href="#C" data-toggle="tab">Controller</a></li>
+            <li><a href="#O" data-toggle="tab">实用功能</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="B" class="active tab-pane">
+                <div class="row">
+                    <div class="col-md-10">
+                       <pre>
+<h1 id="b1" style="color: rosybrown">PHP基础</h1>
+变量:用$符号定义如$a=10;
+类的文件名： 类名.class.php
+数组的定义：$arr=array('a'=>12,'b'=>13);或者$arr=['a'=>12,'b'=>13];
+<h2 id="b11" style="color: blueviolet;padding-left: 30px">常用的全局函数</h2>
+    获取当前时间
+    <kbd>date_default_timezone_set('Asia/Shanghai');</kbd>
+    <kbd>$date = new DateTime();</kbd>
+<h2 id="b12" style="color: blueviolet;padding-left: 30px">字符串操作</h2>
+    分割：explode(char,str,limit)
+    转码：html_entity_decode()文本转html;htmlentities()html转文本
+    穿插：join(str,arr);
+    替换：str_replace(src,des,str);src可以是数组。
+    得到char数组：str_splite(str);
+    长度：strlen(str);
+    首现：strstr(srcstr,desstr);
+    截取：substr(str,start,end);
+    补全：str_pad(src,len,char,0/1);
+    trim:ltrim/rtrim — 删除字符串开头/结尾的空白字符（或其他字符）
+<h2 id="b13" style="color: blueviolet;padding-left: 30px">数组操作</h2>
+    返回列：array_column(arr,col)
+    php的数组有交集差集键值结合等函数，十分强大。
+    所有key：array_keys(arr);
+    存在key：array_key_exit(key,arr);
+    出入栈：array_pop(arr);array_push(arr,var);
+    补全：array_pad (arr,size,value)：
+    反序：array_reverse(arr);
+    存在值：array_search(value,arr) 在数组中搜索给定的值，如果成功则返回相应的键名
+    处理：array_walk (&$arr,callback);
+    排序：sort(&$arr);
+<h1 id="b2" style="color: rosybrown">Thinkphp基础</h1>
+<h2 id="b21" style="color: blueviolet;padding-left: 30px">文件功能：</h2>
+	文件夹：Application放应用本身，应用配置和缓存
+           Public放JS、CSS、img等公用的文件
+           ThinkPHP是框架的核心包，一般不用修改
+	文件：index.php整个应用的入口文
+	       //定义项目名
+	       define('APP_NAME','Index');
+	       // 定义应用目录
+	       define('APP_PATH','./Application/');
+	       默认情况下应用名和路径如下，一套框架只驱动一个应用
+	       应用下面可以有多个模块，模块下面又分多个控制器，再分多个行为
+<h2 id="b22" style="color: blueviolet;padding-left: 30px">多模块的实现：</h2>
+	默认产生一个Home模块，复制Home文件夹，修改命名空间即可。
+<h2 id="b23" style="color: blueviolet;padding-left: 30px">数据库配置：</h2>
+	在模块文件夹下的Conf/config.php中配置本模块的数据库。或者更高级目录下配置。如下：
+	    'DB_TYPE'=>'mysql',                 //配置数据库类型
+            'DB_HOST'=>'localhost',		//配置数据库地址
+            'DB_USER'=>'root',			//配置数据库用户
+            'DB_PWD'=>'',			//配置数据库密码
+            'DB_NAME'=>'mydb',			//配置数据库库名
+            'DB_PREFIX'=>'think_',		//配置数据库前缀(可以没有这一项)
+            'DB_PORT'=>'3306',			//配置数据库端口(也可以没有)
+<h1 id="b3" style="color: rosybrown">MVC</h1>
+    MVC的主要思路是要解放控制器，让模型承担更多的任务，而控制器往往是简单几句话。诸如：用户的输入合法性，一致性，自动转换等都交给了模型。
+    而视图层要结合控制器，进行变量的同步等。最为灵活的是在视图中可以潜入php标签。
+                       </pre>
+                    </div>
+                    <div class="col-md-2 hidden-sm">
+                        <ul  class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80" style="box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;">
+                            <li class="disabled text-info">目录：</li>
+                            <li class="active"><a href="#b1">PHP基础</a> </li>
+                            <li><a href="#b11">常用的全局函数</a></li>
+                            <li><a href="#b12">字符串操作</a></li>
+                            <li><a href="#b13">数组操作</a></li>
+                            <li><a href="#b2">Thinkphp基础</a></li>
+                            <li><a href="#b21">文件功能</a></li>
+                            <li><a href="#b22">多模块的实现</a></li>
+                            <li><a href="#b23">数据库配置</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="M" class="tab-pane">
+                <div class="row">
+                    <div class="col-md-10">
+                        <pre>
+<h1 id="m1" style="color: rosybrown">模型的建立</h1>
+Model文件夹，新建类名xxModel.class.php,声明命名空间为Home\Model，引用并继承Model类。
+另外mysql数据库本身就是模型。
+<h1 id='m2' style="color: rosybrown">模型的引用</h1>
+M方法和D方法：M方法专门针对数据库的快速模型化。用M(表名)的方式就可以引用模型。D方法则针对Model文件夹的模型类D(xx)引用此模型。
+<h1 id="m3" style="color: rosybrown">模型的操作</h1>
+    模型主要操作数据库：
+<h2 id="m31" style="color: blueviolet;padding-left: 30px">查询操作：</h2>
+        基本查询：<b>where</b>和<b>select</b>函数，//模型类是指M方法和D方法所构造的类
+            用法一：字符串条件
+                <kbd>$model->where("id=1 AND name='Frank'")->select();</kbd>
+                使用非常简单就是把查询的where条件字符串形式直接放到where参数中
+                但是安全性不好
+            用法二：数组条件/对象条件
+                <kbd>$where=[id=>1,name=>'Frank'];</kbd>
+                <kbd>$model->where($where)->select();</kbd>
+                除了数组之外也可以是对象，Think提供了一个动态的类：\stdClass
+                <kbd>$where=new \stdClass();$where->id=1;$where->name='Frank';</kbd>
+                <kbd>model->where($where)->select();</kbd>
+                安全性高，但是只能=，其他关系查询麻烦。
+            用法二扩展：其他逻辑条件
+                将条件数组的一员，在定义为数组，key表示关系，val表示值
+                <kbd>$where=[id=>['gt',3],name=>['like',[%a%,%b%],'AND']];</kbd>
+                其他逻辑用法：
+                <kbd>['between','1,10'];</kbd>
+                <kbd>['in','1,3,4,5']</kbd>
+            注：多数逻辑是存在not xxx反逻辑的
+            其他扩展：多条件查询和‘或’逻辑查询
+                <kbd>$map['name|pwd']='frank';</kbd>//name=frank or pwd=frank
+                <kbd>$map['name&pwd']='frank';</kbd>//name=frank & pwd=frank
+                <kbd>$map['name|pwd']=['frank','123123',_multi=true];</kbd>//name=frank or pwd=123123
+                <kbd>$map['name&pwd']=['frank','123123',_multi=true];</kbd>//name=frank & pwd=123123
+            find()函数获取一条
+        统计查询：<b>count max min ave</b>
+            用法：直接加列名
+        动态查询：<b>getbyxx</b>和<b>getFieldbyxx</b>函数
+            <kbd>getbyid(1);</kbd>//获取id=1的第一行数据
+            <kbd>getFieldbyid(1,'name');</kbd>//获取id=1的第一行的数据的name列,name引号也可不加
+            注：这两个函数只能选一行数据，且不用加select方法，直接单独使用
+        排序和分组等：order group having limit
+            <kbd>order('id DESC','name');</kbd>//先按id倒叙再按name正序
+            <kbd>field('id','name');</kbd>//只返回这两列
+            <kbd>group('id')->having('id>10');</kbd>//分组
+            <kbd>limit(3);</kbd>//只保留前三个
+            <kbd> cache(true);</kbd>//开启缓存
+        预定查询：<b>$_scope</b>
+            如果某查询语句在项目中多次使用，可以直接加到模型类中：
+            <kbd>protected $_scope=[</kbd>
+            <kbd>    'mysql1'=>['where'=>['id'=>['gt',3]],'limit'=>10],</kbd>
+            <kbd>]</kbd>
+            调用：
+            <kbd>$model->mysql1()->select();</kbd>
+        最基本的用法：
+            <kbd>$model=M();</kbd>
+            <kbd>$model->query('select * from table');</kbd>
+<h2 id="m32" style="color: blueviolet;padding-left: 30px">增加操作：</h2>
+        <b>add</b>函数：
+        添加方式：<kbd>$data['name']=xxx;$data['pwd']=xxx;$model.add($data);</kbd>
+        或者：<kbd>$model->name=xx;$model->pwd=xx;$model->add();</kbd>
+<h2 id="m33" style="color: blueviolet;padding-left: 30px">删除操作：</h2>
+        <b>delete</b>函数：
+        删除方式：<kbd>delete(key值);</kbd>
+        或者结合where使用。
+<h2 id="m34" style="color: blueviolet;padding-left: 30px">修改操作：</h2>
+        <b>save</b>函数：
+        定义一个含有主键的array，$model->save($data);
+<h1 id="m4" style="color: rosybrown">自动验证：</h1>
+    模型的保护成员<b>$_validate</b>
+    常用表单验证：
+        <b>['字段','验证方式',警告文字,(验证模式)]</b>
+        ['email','require','邮箱是必须的',0]
+        //模式0默认存在就验证否则不验证，1始终验证，2不为空才验证。一般用默认和1
+    常用验证方式：
+        <b>require email number integer double english</b>等
+    附加验证规则：
+        ['字段','验证参数',警告文字,验证模式,附加规则]
+        附加规则：regex正则表达式，验证参数为正则的式子//下面的很多都可以通过正则直接写
+        <b>confirm</b>验证是否和另一字段相等，验证参数为另一字段名
+        <b>equal</b>验证是否和给定参数相等
+        <b>in</b>验证是否在参数集合中，验证参数为数组(或者，隔开的字符串)
+        <b>length</b>验证字符串长度，参数为一个值或者，隔开的两个范围边界值
+    验证的过程：
+        create函数触发验证，create可以是前端的表单直接用。也可以<kbd>$model->create($data);</kbd>
+        如果所有条件验证通过，create函数返回true。否则返回false，并且错误提示的语句产生到<kbd>$model->getError()</kbd>中。
+        使用ajax方式传到前端：<kbd>$this->ajaxReturn($model->getError());</kbd>
+<h1 id="m5" style="color: rosybrown">自动填充：</h1>
+    模型的另一个保护成员$_auto
+    基本的填充方式：
+        <kbd>['name','佚名',(填充时机)]</kbd>//填充时机1默认新增数据时，2更新数据时，3是无论何时都填充
+    调用系统函数的填充：
+        <kbd>['pwd','md5',3,'function']</kbd>//第四个参数是function会调用系统函数，或者function.php文件中的全局函数
+    调用自定函数的填充：
+        <kbd>['pwd','myfun',3,'callback',(如果回掉函数有俩参数这是第二个)]</kbd>
+        <kbd>protected function myfun($pwd,$secondparam){</kbd>
+            <kbd>return xxx;</kbd>
+        <kbd>}</kbd>
+    忽略空字符串的填充：
+        <kbd>['pwd','',2,ignore]</kbd>//如果pwd为空字符串，则忽略这个数据pwd字段的save操作
+<h1 id="m6" style="color: rosybrown">实战测验：</h1>
+    1.配置数据库连接
+    2.为user表建立model(id,name,pwd)
+    3.验证model的name pwd不能空，以ajax返回验证结果
+    4.自动将pwd填充为md5加密后的字符串，并且在这个md5码最后再加一个后缀：'think'
+    5.要求写出配置文件,整个UserModel类，以及控制器中相关操作。不要求写前端。
+                        </pre>
+                    </div>
+                    <div class="col-md-2 hidden-sm" id="spy">
+                        <ul  class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80" style="box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;">
+                            <li class="disabled text-info">目录：</li>
+                            <li class="active"><a href="#m1">模型的建立</a> </li>
+                            <li><a href="#m2">模型的引用</a></li>
+                            <li><a href="#m3">模型的操作</a> </li>
+                            <li><a href="#m31" style="padding-left: 30px">查询</a> </li>
+                            <li><a href="#m32" style="padding-left: 30px">增加</a> </li>
+                            <li><a href="#m33" style="padding-left: 30px">删除</a> </li>
+                            <li><a href="#m34" style="padding-left: 30px">修改</a> </li>
+                            <li><a href="#m4">自动验证</a> </li>
+                            <li><a href="#m5">自动填充</a> </li>
+                            <li><a href="#m6">实战测验</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="V" class="tab-pane">
+                <div class="row">
+                    <div class="col-md-10">
+                        <pre>
+<h1 id="v1" style="color: rosybrown">视图的创建：</h1>
+	在View文件夹下新建和控制器同名的文件夹，然后建立和行为同名的html文件就是行为函数中$this->display()所呈现的页面。
+<h1 id="v2" style="color: rosybrown">视图调用PHP：</h1>
+	变量传递：
+		控制器：<kbd>$this->assign('val','Frank');</kbd>
+		视图：<kbd>{$val}</kbd>
+	函数传递：
+		视图：<kbd>{:U(index)}</kbd>//函数可以是系统函数也可以是自己定义在function.php中的全局函数
+	    变量调用时直接应用函数：<kbd>{$val|default='frank'}</kbd>
+<h1 id="v3" style="color: rosybrown">内置标签：</h1>
+	语法标签：
+		thinkphp的视图模板内置了很多语法标签，诸如if swich等，这些标签写法需要记忆。所以不建议使用，建议直接用<?php xxx?>的形式直接用php语法。
+	展示标签：
+		volist和foreach遍历展示数组，volist name指向数组id指向成员，foreach name指向数组item指向成员。这里不带$符号。
+                在前端的php模板中有时可以用.来代替['']或者->。不过考虑到>符号是html的标签符，所以少用->,数组的尽量还是用[],对象的用.代替->。
+                &lt;volist <b>name=&quot;d&quot; id=&quot;item&quot;</b> &gt;
+                    &lt;h1&gt;id:{$item.id};name:{$item.name}&lt;/h1&gt;
+                &lt;/volist&gt;
+                &lt;foreach <b>name=&quot;d&quot; item=&quot;item&quot;</b>&gt;
+                    &lt;h1&gt;id:{$item.id};name:{$item.name}&lt;/h1&gt;
+                &lt;/foreach&gt;
+	引入标签：
+                <kbd>&lt;import type=&#39;js&#39; file=&#39;js.myjs&#39;/&gt; 等价于 &lt;script src=&#39;__PUBLIC__/js/myjs.js&#39;&gt;&lt;/script&gt;</kbd>
+<h1 id="v4" style="color: rosybrown">模板页：</h1>
+	模板中留出<block name='xx'></block>,然后在要展示的页面继承这个模板<kbd>&lt;extend name=&quot;base&quot; /&gt;&lt;block name=&quot;title&quot;&gt;&lt;title&gt;mytitle&lt;/title&gt;&lt;/block&gt;</kbd>，并指改动block部分即可.
+                        </pre>
+                    </div>
+                    <div class="col-md-2 hidden-sm" id="spy2">
+                        <ul  class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80" style="box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;">
+                            <li class="disabled text-info">目录：</li>
+                            <li><a href="#v1">视图的创建</a> </li>
+                            <li><a href="#v2">视图调用PHP</a></li>
+                            <li><a href="#v3">内置标签</a></li>
+                            <li><a href="#v4">模板页</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="C" class="tab-pane">
+                <div class="row">
+                    <div class="col-md-10">
+                        <pre>
+<h1 id="c1" style="color: rosybrown">控制器的创建：</h1>
+	controller文件夹下仿照原来的IndexController.class.php。和模型一样也要引入并继承Controller类。
+	类中的每一个方法都相当于一个行为action，路由方面可以通过http://域名/index.php/Home/Index/index访问该函数，即 入口文件/模块/控制器/行为。
+<h1 id="c2" style="color: rosybrown">控制器下调用函数：</h1>
+	处理业务逻辑的函数一般不要封装在控制器类中，而是单独建立类来封装这些函数，这些类不属于MVC中任何一个，所以建议新建一个文件夹，并声明这个空间，然后封装函数以供控制器调用。
+	如果想要调用另一个控制器下的函数，则用A方法：<kbd>A('modulename\controllername','Controller');</kbd>//第二个参数是所处文件夹，一般情况下都是Controller
+<h1 id="c3" style="color: rosybrown">行为函数的参数绑定：</h1>
+	行为函数的参数可以绑定前段的请求参数，只需要参数名$xx和请求数据的参数名xx同名。但是如果没有传入这个参数时，页面就会报错。不推荐调试使用。
+<h1 id="c4" style="color: rosybrown">控制器下的跳转函数：</h1>
+	<kbd>$this->success('操作成功','[controller]/action',[time]);</kbd>第二个参数也可以是全地址，如果没有第二个参数，可以直接写第三个时间参数。就会跳到原网页。
+	<kbd>$this->error();</kbd>函数用法同上。
+<h1 id="c5" style="color: rosybrown">前端数据的接收：</h1>
+	PHP原生的$_GET和$_POST依旧可以用，但是更推荐使用<kbd>I('[get/post.]参数名',[默认值]);</kbd>没有提交参数的时候给个默认值。
+<h1 id="c6" style="color: rosybrown">向前端返回数据：</h1>
+	<kbd>$this->display();</kbd>//默认展示View文件夹下和行为名同名的xxx.html
+	<kbd>$this->ajaxReturn($data);</kbd>//向前端返回ajax形式的数据，
+<h1 id="c7" style="color: rosybrown">有用的全局变量：</h1>
+	<b>IS_GET</b>,<b>IS_POST</b>,<b>IS_AJAX</b>。可以根据这几个变量判断是初次加载的页面还是请求提交的页面。
+                        </pre>
+                    </div>
+                    <div class="col-md-2 hidden-sm" id="spy3">
+                        <ul  class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80" style="box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;">
+                            <li class="disabled text-info">目录：</li>
+                            <li><a href="#c1">控制器的创建</a> </li>
+                            <li><a href="#c2">控制器下调用函数</a></li>
+                            <li><a href="#c3">行为函数的参数绑定</a></li>
+                            <li><a href="#c4">控制器下的跳转函数</a></li>
+                            <li><a href="#c5">前端数据的接收</a></li>
+                            <li><a href="#c6">向前端返回数据</a></li>
+                            <li><a href="#c7">有用的全局变量</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="O" class="tab-pane">
+                <div class="row">
+                    <div class="col-md-10">
+<pre>
+<h2 id="o1" style="color: blueviolet;padding-left: 30px">session & cookie</h2>
+	session赋值和取值和删除
+		<kbd>session('id',1);</kbd>
+		<kbd>session('id');</kbd>
+        <kbd>session('id',null);</kbd>
+	判断是否存在：
+		<kbd>session('?id')</kbd>//用的很多
+	cookie用法相同，只是在赋值的时候有第三个参数时效(s)
+<h2 id="o2" style="color: blueviolet;padding-left: 30px">图像处理</h2>
+	打开图片：
+		<kbd>$img=new Image(); $img->open('./Public/img/1.jpg');</kbd>
+	裁剪图片：
+		<kbd>$img->crop(400,400,200,0,200,200);</kbd>
+		参数2-6个，宽高-[起点]-[压缩后宽高]
+	添加水印：
+		<kbd>$img->water(‘filepath’,’position’,’透明度’);</kbd>
+		position 5是右下，1是左上，不写为5
+<h2 id="o3" style="color: blueviolet;padding-left: 30px">验证码</h2>
+	产生验证码：
+		<kbd>$verify=new Verify();</kbd>
+		<kbd>$verify->entry();</kbd>
+		调整参数
+			<b>$c=['length'=>3,'useNoise'=>false,'charSet'=>'1234'];</b>
+			<b>new Verify($c);</b>即可
+	显示验证码：
+		img标签的src属性写上该行为即可
+	校验验证码：
+		<kbd>new Verify()->check();</kbd>
+		校验的机制基于session，所以同一电脑同一浏览器新开网页后，前一个验证码失效。entry和check也可以带参数，以区分同意应用下不同页面的验证码输入。
+<h2 id="o4" style="color: blueviolet;padding-left: 30px">文件上传</h2>
+	首先要创建./Uploads文件夹
+	前端：
+	<b>&lt;form method="post" action="{:U('upload')}" enctype="multipart/form-data"&gt;
+       &lt;input type="file" name="photo"/&gt;
+       &lt;input type="submit" value="submit"&gt;
+	&lt;/form&gt;</b>
+	服务端：
+	<b>public function upload(){$upload=new Upload();
+        $upload-&gt;maxSize=3145728;
+        $upload-&gt;exts=['txt','js'];
+        $upload-&gt;saveName='upfile';
+        $info=$upload-&gt;upload();
+        if(!$info){
+        echo $upload-&gt;getError();
+        }
+        else{
+            echo '上传成功';
+        }
+   }</b>
+<h2 id="o5" style="color: blueviolet;padding-left: 30px">分页</h2>
+	<kbd>$page=new Page(总条数，每页条数);</kbd>
+	<kbd>$model->limit($page->firstRow,$page->listRows)->select();</kbd>
+	其实没啥用，不如自己写的灵活性高。
+<h2 id="o6" style="color: blueviolet;padding-left: 30px">缓存</h2>
+	变量数据缓存：
+		<kbd>S('name',$data,10);</kbd>
+	文件静态缓存：
+		配置文件中设置HTML静态缓存：
+		<kbd>'HTML_CACHE_ON'=>true,</kbd>
+		<kbd>'HTML_CACHE_TIME'=>60,</kbd>
+</pre>
+                    </div>
+                    <div class="col-md-2 hidden-sm">
+                        <ul  class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80" style="box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;">
+                            <li class="disabled text-info">目录：</li>
+                            <li><a href="#o1">session & cookie</a> </li>
+                            <li><a href="#o2">图像处理</a> </li>
+                            <li><a href="#o3">验证码</a> </li>
+                            <li><a href="#o4">文件上传</a> </li>
+                            <li><a href="#o5">分页</a> </li>
+                            <li><a href="#o6">缓存</a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="background-color:oldlace ;">
+        <div class="container-fluid">
+            <center class="text-muted" style="margin-top: 20px">本站点用BootStrap和Jquery布置前端页面，由Apache和NodeJS服务器驱动，并借助ThinkPHP构建服务端程序</center>
+            <h3 style="text-align: center;margin-top: 20px">如果你有什么建议和问题记得联系我：sunwu51@126.com</h3>
+        </div>
+    </footer>
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

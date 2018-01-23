@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表单内容</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <h2 class="text-info">文本框</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <code>
+                    &lt;form class="form-horizontal"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="form-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="col-sm-2 control-label"  style="font-size: 20px"&gt;用户名&lt;/label&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-10"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" placeholder="form-control占整行"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input-group-addon"&gt;附着&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="form-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="col-sm-2 control-label" style="font-size: 20px"&gt;邮箱&lt;/label&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div  class="col-sm-10"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" class="form-control" placeholder="输入邮箱"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="form-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="col-sm-2 control-label" style="font-size: 20px"&gt;密码&lt;/label&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div  class="col-sm-10"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;input type="password" class="form-control" placeholder="输入密码"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>            &lt;/form&gt;
+                </code>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"  style="font-size: 20px">用户名</label>
+                        <div class="col-sm-10">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="form-control占整行">
+                            <div class="input-group-addon">附着</div>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="font-size: 20px">邮箱</label>
+                        <div  class="col-sm-10">
+                            <input type="email" class="form-control" placeholder="输入邮箱">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" style="font-size: 20px">密码</label>
+                        <div  class="col-sm-10">
+                            <input type="password" class="form-control" placeholder="输入密码">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="text-info">正误显示</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <code>
+                    &lt;form class="form-horizontal"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="form-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="col-sm-2 control-label"  style="font-size: 20px"&gt;用户名&lt;/label&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="col-sm-10"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" class="form-control" placeholder="form-control占整行"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="input-group-addon"&gt;附着&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="form-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="col-sm-2 control-label" style="font-size: 20px"&gt;邮箱&lt;/label&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div  class="col-sm-10"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="email" class="form-control" placeholder="输入邮箱"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class="form-group"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;label class="col-sm-2 control-label" style="font-size: 20px"&gt;密码&lt;/label&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div  class="col-sm-10"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;input type="password" class="form-control" placeholder="输入密码"&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>            &lt;/form&gt;
+                </code>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <form class="form-horizontal">
+                    <div class="form-group has-success has-feedback">
+                        <label class="col-sm-2 control-label"  style="font-size: 20px">用户名</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" placeholder="form-control占整行">
+                            <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="form-group has-error has-feedback">
+                        <label class="col-sm-2 control-label" style="font-size: 20px">邮箱</label>
+                        <div  class="col-sm-10">
+                            <input type="email" class="form-control" placeholder="输入邮箱">
+                            <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <h2 class="text-info">单复选</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <code>
+                    &lt;div class="radio"&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;input type="radio" name="sex" value="m"&gt;man<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;input type="radio" name="sex" value="w"&gt;woman<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br/>                &lt;/div&gt;<br/>                &lt;div class="checkbox"&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &lt;input type="checkbox" name="sex" value="f"&gt;football<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label&gt;<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   &lt;input type="checkbox" name="sex" value="b"&gt;basketball<br/>                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/label&gt;<br/>                &lt;/div&gt;
+                </code>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="sex" value="m">man
+                    </label>
+                    <label>
+                        <input type="radio" name="sex" value="w">woman
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="sex" value="f">football
+                    </label>
+                    <label>
+                        <input type="checkbox" name="sex" value="b">basketball
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="text-info">按钮单复选</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <code>
+                    &lt;div class="btn-group" data-toggle="buttons"&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-default"&gt;&lt;input type="radio" name="sex" value="m"&gt;男&lt;/button&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-default"&gt;&lt;input type="radio" name="sex" value="w"&gt;女&lt;/button&gt;<br/>&lt;/div&gt;<br/>&lt;div class="btn-group" data-toggle="buttons"&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-default"&gt;&lt;input type="checkbox" name="like" value="f"&gt;足球&lt;/button&gt;<br/>    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button class="btn btn-default"&gt;&lt;input type="checkbox" name="like" value="b"&gt;篮球&lt;/button&gt;<br/>&lt;/div&gt;
+                </code>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <div class="btn-group" data-toggle="buttons">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-default"><input type="radio" name="sex" value="m">男</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-default"><input type="radio" name="sex" value="w">女</button>
+                </div>
+                <div class="btn-group" data-toggle="buttons">
+                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-default"><input type="checkbox" name="like" value="f">足球</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-default"><input type="checkbox" name="like" value="b">篮球</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2 class="text-info">下拉选择框</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <code>
+                    &lt;select class="form-control"&gt;<br/>    &lt;option value="1"&gt;1&lt;/option&gt;<br/>    &lt;option value="2"&gt;2&lt;/option&gt;<br/>    &lt;option value="3"&gt;3&lt;/option&gt;<br/>&lt;/select&gt;
+                </code>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div  style="padding: 15px;border: 1px solid">
+                <select class="form-control">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

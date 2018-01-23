@@ -1,0 +1,90 @@
+<!DOCTYPE html><html><head><title>gin</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="gin">gin</h1>
+
+
+
+<h2 id="1-helloworld">1 HelloWorld</h2>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-keyword">package</span> main
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-keyword">import</span> (
+</div><div class="hljs-line">    <span class="hljs-string">"github.com/gin-gonic/gin"</span>
+</div><div class="hljs-line">)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+</div><div class="hljs-line">    r := gin.Default()
+</div><div class="hljs-line">    r.GET(<span class="hljs-string">"/"</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> {
+</div><div class="hljs-line">        c.JSON(<span class="hljs-number">200</span>, gin.H{
+</div><div class="hljs-line">            <span class="hljs-string">"message"</span>: <span class="hljs-string">"hello word"</span>,
+</div><div class="hljs-line">        })
+</div><div class="hljs-line">    })
+</div><div class="hljs-line">    r.Run(<span class="hljs-string">":8007"</span>) <span class="hljs-comment">// listen and serve on 0.0.0.0:8007</span>
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p>注意：如果你不想用gin提供的方法，完全可以使用<code>c.Request</code>和<code>c.Writer</code>来直接操作，他们就是原生的http包的。</p>
+
+
+
+<h2 id="2-header">2 header</h2>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//获取请求头,如果没有则返回的是空字符串而不是nil</span>
+</div><div class="hljs-line">c.GetHeader(<span class="hljs-string">"key"</span>)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//写入响应头,</span>
+</div><div class="hljs-line">c.Header(<span class="hljs-string">"key"</span>,<span class="hljs-string">"value"</span>)
+</div></code></pre>
+
+
+
+<h2 id="3-param">3 param</h2>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//路由参数    get /user/1 ==&gt;1</span>
+</div><div class="hljs-line">r.GET(<span class="hljs-string">"/user/:id"</span>,<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span>{
+</div><div class="hljs-line">    c.Param(<span class="hljs-string">"id"</span>)
+</div><div class="hljs-line">})
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//querystring参数 get /querystring?a=123 ==&gt;123</span>
+</div><div class="hljs-line">r.GET(<span class="hljs-string">"/querystring"</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> {
+</div><div class="hljs-line">    fmt.Println(c.Query(<span class="hljs-string">"a"</span>))
+</div><div class="hljs-line">})
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//表单参数 </span>
+</div><div class="hljs-line">r.POST(<span class="hljs-string">"/form"</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> {
+</div><div class="hljs-line">    fmt.Println(c.PostForm(<span class="hljs-string">"a"</span>))
+</div><div class="hljs-line">})
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//json参数 此处将json转为map[string] interface{}</span>
+</div><div class="hljs-line">r.POST(<span class="hljs-string">"/json"</span>, <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span> {
+</div><div class="hljs-line">    <span class="hljs-comment">//若要直接和struct关联直接将amap类型改为struct类型</span>
+</div><div class="hljs-line">    <span class="hljs-keyword">var</span> amap  <span class="hljs-keyword">interface</span>{}
+</div><div class="hljs-line">    c.BindJSON(&amp;amap)
+</div><div class="hljs-line">    fmt.Println(amap)
+</div><div class="hljs-line">})
+</div></code></pre>
+
+
+
+<h2 id="4-response">4 response</h2>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//纯文本</span>
+</div><div class="hljs-line">c.String(<span class="hljs-number">200.</span><span class="hljs-string">"hello world"</span>)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//json类型 amap是map[string] interface{}类型，或者用gin.H构建</span>
+</div><div class="hljs-line">c.Json(amap)
+</div><div class="hljs-line">
+</div><div class="hljs-line"><span class="hljs-comment">//写接口一般就用这两种就够了，其他的不赘述</span>
+</div></code></pre></div></body></html>

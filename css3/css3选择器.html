@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3选择器</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }code{
+             font-size: 18px;
+         }
+        #e1 code{margin-left: 40px;
+            line-height: 2;}
+
+        .row{
+            margin-top: 15px;
+        }
+        #demo1 a:link{
+            color: #006666;
+        }
+        #demo1 a:visited{
+            color: #b2dba1;
+        }
+        #demo1 button:active{
+            background-color: red;
+        }
+        #demo1 span:hover{
+            background-color: yellow;
+            cursor: pointer;
+        }
+        #demo1 input{
+            width: 100px;
+        }
+        #demo1 input:focus{
+           background-color: yellowgreen;
+        }
+        #demo2 :checked+label{
+            background-color: yellow;
+        }
+        #demo2 button:enabled{
+            background-color: green;
+        }
+        #demo2 button:disabled{
+            background-color: red;
+        }
+        #div3 button:nth-child(2){
+            background-color: red;
+        }
+        #div31 button:nth-child(2n+1){
+             background-color: red;
+        }
+        #div32 button:nth-of-type(2n+1){
+            background-color: red;
+        }
+        #div33:empty{
+            background-color: yellow;
+        }
+        #demo4 [h]::after{
+            content: "<h3>这是附加在后</h3>";
+        }
+        #demo4 [s]::selection{
+            color:greenyellow;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>层次选择器</b></h2>
+                <p>1.多类选择器：.a.b是要同时满足class="a b"</p>
+                <p>2.混合选择器：ul.a同时满足ul和class="a" #idm.a满足id="idm" class="a"</p>
+                <p>3.群组选择器：#idm,ul,.a满足以上三个条件任意一个</p>
+                <p>4.后代选择器：ul li空格隔开两选择器ul下所有的li</p>
+                <p>5.子代选择器：ul>li大于号隔开两选择器ul下一级的li，不包含下下级及更下级</p>
+                <p>6.相邻选择器：ul+a选择ul紧邻其后的a元素</p>
+                <p>7.通用选择器：ul~a选择ul后面所有的a元素</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="e1" style="border: solid 1px;border-radius: 4px">
+                <h2  class="text-info">记忆方法</h2>
+                <code>紧邻是交集</code><br>
+                <code>逗号是并集</code><br>
+                <code>空格是后代</code><br>
+                <code>大于是子代</code><br>
+                <code>加号是后一</code><br>
+                <code>波浪是后所有</code><br>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>动态伪类选择器</b></h2>
+                <p><b class="text-danger">:link</b>用于a元素未访问 </p>
+                <p><b class="text-danger">:visited</b>用于a元素被访问后</p>
+                <p><b class="text-danger">:active</b>用于a或btn被按下时</p>
+                <p> <b class="text-danger">:hover</b>鼠标悬浮</p>
+                <p> <b class="text-danger">:focus</b>获得焦点</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="demo1" style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <code>:link/visited</code>
+                    </div>
+                    <div class="col-xs-9">
+                        <a style="font-size: 20px" href="http://microfrank.top">超链接</a><br>
+                    </div>
+                    <div class="col-xs-3">
+                        <code>:active</code>
+                    </div>
+                    <div class="col-xs-9">
+                        <button class="btn btn-info">按下时</button><br>
+                    </div>
+                    <div class="col-xs-3">
+                        <code>:hover</code>
+                    </div>
+                    <div class="col-xs-9">
+                        <span style="border: solid 1px;font-size: 20px">鼠标悬浮</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <code>:focus</code>
+                    </div>
+                    <div class="col-xs-9">
+                        <input/><input/>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>UI选择器</b></h2>
+                <p><b class="text-danger">:checked</b>特定控件选中</p>
+                <p><b class="text-danger">:enabled</b>特定控件激活 </p>
+                <p><b class="text-danger">:disabled</b>特定控件禁用</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="demo2" style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <code>:check</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <input id='i1' type="checkbox"/><label>11111</label>
+                            <input id="i2" type="checkbox"/><label>22222</label>
+
+                        </div>
+                        <div class="col-xs-3">
+                            <code>:enable</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <button class="btn btn-info">激活</button>
+                        </div>
+                        <div class="col-xs-3">
+                            <code>:disable</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <button disabled class="btn btn-info">禁用</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>结构伪类选择器</b></h2>
+                <p><b class="text-danger">E:first-child</b>第一个子E元素，同样有last</p>
+                <p><b class="text-danger">E F:nth-child(n)</b>第n个子F元素，n>0，n也可以写作3n+1(此时n从0开始即可)这种样式，同样有nth-last-child(n) </p>
+                <p><b class="text-danger">E:nth-of-type(n)</b>第n个E</p>
+                <p><b class="text-danger">E:empty</b>E为空（标签中无任何东西）则选出</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="demo3" style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <code>div button:nth-child(2)</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <div id="div3">
+                                <button class="btn btn-default">1</button>
+                                <button class="btn btn-default">2</button>
+                                <button class="btn btn-default">3</button>
+                                <button class="btn btn-default">4</button>
+                                <button class="btn btn-default">5</button>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-3">
+                            <code>:nth-child(2n+1)</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <div id="div31">
+                                <button class="btn btn-default">1</button>
+                                <button class="btn btn-default">2</button>
+                                <button class="btn btn-default">3</button>
+                                <button class="btn btn-default">4</button>
+                                <button class="btn btn-default">5</button>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-3">
+                            <code>btn:nth-of-type(2n+1)</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <div id="div32">
+                                <button class="btn btn-default">1</button>
+                                <button class="btn btn-default">2</button>
+                                <button class="btn btn-default">3</button>
+                                <button class="btn btn-default">4</button>
+                                <button class="btn btn-default">5</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <code>E:empty</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <div style="width: 187px;height: 30px" id="div33"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>伪元素</b></h2>
+                <p><b class="text-danger">::before/after</b>{}中必须有content:字段才能生效</p>
+                <p><b class="text-danger">::selection</b>接受两个属性background和color </p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="demo4" style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <code>::after</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <div h>这是内容</div><br>
+                        </div>
+
+                        <div class="col-xs-3">
+                            <code style="margin-left: 0">::selection</code>
+                        </div>
+                        <div class="col-xs-9">
+                            <span s>尝试选中这段文字</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid  1px;">
+                <h2 class="text-danger"><b>属性选择器</b></h2>
+                <p><b class="text-danger">E[attr]</b>有属性attr的E</p>
+                <p><b class="text-danger">E[attr=val]</b>属性attr为val的E</p>
+                <p>除了=之外还有<code>~=</code>指空格分开多个值有一个是val，<code>*=</code>含有val，<code>^=</code>以val开始，<code>$=</code>以val结尾 </p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="demo5" style="border: solid 1px;">
+                <h2 class="text-info">记忆方法</h2>
+                <div class="container">
+                    <h3>联系正则和jquery的属性选择器进行记忆</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3文本</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }code{
+             font-size: 18px;
+         }
+        .row{
+            margin-top: 15px;
+        }
+        .mar{
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>text-shadow</b></h2>
+                <p>和box-shadow一样的四个参数：右阴影，下阴影，模糊半径，颜色</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code>text-shadow:3px 3px 2px red</code>
+                <div style="text-shadow:3px 3px 2px red;color:green;border: solid 1px;">
+                    <h2>文字的阴影</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>text-overflow</b></h2>
+                <p>和box-shadow一样的四个参数：右阴影，下阴影，模糊半径，颜色</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code>text-overflow:clip;white-space:nowrap;overflow:hidden;</code>
+                <p>需要配合white-space和overflow才能隐藏，而其实有了这俩属性不写text-overflow也是相同效果，因为默认就是clip。white-space:nowrap强制不换行</p>
+                <div class="mar" style="text-overflow:clip;white-space:nowrap;overflow:hidden;color:green;border: solid 1px;">
+                    文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出
+                </div>
+                <code>text-overflow:ellipsis;white-space:nowrap;overflow:hidden;</code>
+                <div class="mar" style="text-overflow:ellipsis;white-space:nowrap;overflow:hidden;color:green;border: solid 1px;">
+                    文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出文字的单行溢出
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="border: solid 1px">
+        <h3 class="text-info">对于文本的换行时机，比如英文单词是否打断，也有些设置的方式。因为用的并不多所以这里不再继续写，等遇到了可以到网上查找现成的解决方案</h3>
+    </div>
+</div>
+</body>
+</html>

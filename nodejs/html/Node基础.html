@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Node基础</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        .well{
+            background-color: #30bbbb;
+            font-size: 20px;
+        }
+        pre{
+            font-size: 17px;
+        }
+    </style>
+</head>
+<body>
+<div class="well"><h1>Node基础</h1></div>
+<div class="container">
+    <div class="well"><a href="#collapse1" data-toggle="collapse" >1.nodejs的介绍和环境配置：(单击展开)</a></div>
+    <pre id="collapse1" class="collapse">
+* nodejs是单线程，事件异步触发的机制，即发生一个事件会触发一个回调函数，可以结合jquery的ajax请求理解。
+    $.post('url',{d:'d'},function(data){alert(data)});//这是一个很经典异步回调
+* 适合计算处理较少的业务。对于短消息的即时传输有较好的效果。同时可以专门做web接口，类似于webservice。
+* nodejs主要依托各种模块来搭建服务，在之后的介绍中也会介绍很多常用的模块。
+* 直接在官网下载安装包，写好的程序可以在命令窗口用node xxx.js运行</pre>
+    <div class="well"><a href="#collapse2" data-toggle="collapse" >2.开启第一个网页服务器：</a></div>
+    <pre id="collapse2" class="collapse">
+var http=require('http');
+var server=http.createServer(function(req,res){
+    res.write('HTTP server');
+});
+server.listen(8001);
+运行这段代码，然后在浏览器访问localhost:8001可以看到HTTP server的字样在网页上显示。</pre>
+
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>关于</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        #about{
+            background-color: #eee;
+        }
+        #about .about{
+            background-color: white;
+            padding: 20px 30px;
+            box-shadow: 2px 2px 3px #ccc;
+        }
+        #about h3{
+            color: #333;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+        #about p{
+            line-height: 2;
+            font-size: 13px;
+        }
+        .tab-h2{
+            font-size: 24px;
+            color:#0059b2;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .tab-p{
+            font-size: 14px;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #999;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .info-content img{
+            /*width: 50%;*/
+            margin: 12px auto;
+        }
+        .info-content h4{
+            font-size: 20px;
+        }
+        .hide-min{
+            display: none;
+        }
+        .info-right{
+            margin-left: 0px;
+            padding: 15px;
+            background-color: white;
+            margin-top: 15px;
+            box-shadow: 2px 2px 3px #ccc;
+        }
+        @media(min-width: 768px) {
+            #about h3{
+                color: #333;
+                font-size: 21px;
+            }
+            #about p{
+                line-height: 2;
+                font-size: 15px;
+            }
+            .hide-min{
+                display: block;
+            }
+            .info-content h4{
+                font-size: 27px;
+            }
+            .tab-h2{
+                font-size: 26px;
+                color:#0059b2;
+                text-align: center;letter-spacing: 1px;
+            }
+
+            .tab-p{
+                font-size: 15px;
+                text-align: center;
+                letter-spacing: 1px;
+                color: #999;
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+            .tab2-img{
+
+                float: right;
+            }
+            .tab2-text{
+                float: left;
+            }
+
+        }
+        @media(min-width: 992px) {
+            #about h3{
+                color: #333;
+                font-size: 24px;
+            }
+            #about p{
+                line-height: 2;
+                font-size: 17px;
+            }
+            .tab-h2{
+                font-size: 28px;
+                color:#0059b2;
+                text-align: center;letter-spacing: 1px;
+            }
+            .tab-p{
+                font-size: 16px;
+                text-align: center;
+                letter-spacing: 1px;
+                color: #999;
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+            .info-content img{
+                /*width: 90%;*/
+                margin: 12px auto;
+            }
+
+        }
+        @media(min-width: 1200px) {
+            .tab-h2{
+                font-size: 30px;
+                color:#0059b2;
+                text-align: center;letter-spacing: 1px;
+            }
+            .tab-p{
+                font-size: 18px;
+                text-align: center;
+                letter-spacing: 1px;
+                color: #999;
+                margin-top: 20px;
+                margin-bottom: 40px;
+            }
+
+        }
+
+        .tab1{
+            margin: 30px 0;
+            color: #666;
+        }
+        .tab2{
+            padding: 40px;
+            background-color: #eee;
+        }
+        .tab3{
+            padding: 40px;
+        }
+        .col{
+            padding: 30px;
+        }
+        #footer{
+            padding: 20px;
+            text-align: center;
+            background-color: #eee;
+            border-top: 1px solid #ccc;
+        }
+        .jumbotron{
+            background-image: url("img/bjtu1.jpg");
+            margin-bottom: 0;
+        }
+        .info-content{
+            padding: 15px;
+            background-color: white;
+            margin-top: 15px;
+            box-shadow: 2px 2px 3px #ccc;
+        }
+
+        .info-content p{
+            line-height: 1.6;
+        }
+        .info-content h4{
+            color: #13e7ff;
+            }
+    </style>
+</head>
+<body  data-spy="scroll" data-target="#spy">
+<!--<body>-->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <div class="navbar-brand" style="padding-top: 0"><img style="height: 50px" src="../img/bootstrap-logo.png"/></div>
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#mycollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="mycollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li ><a href="项目实战3.html"><span class="glyphicon glyphicon-home"></span> 首页</a> </li>
+                <li><a href="资讯.html"><span class="glyphicon glyphicon-list"></span> 资讯</a> </li>
+                <li><a href="案例.html"><span class="glyphicon glyphicon-fire"></span> 案例</a> </li>
+                <li class="active"><a href="关于.html"><span class="glyphicon glyphicon-question-sign"></span> 关于</a> </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron">
+    <div class="container">
+        <h1>关于</h1>
+        <h4>本网页纯属娱乐如有冒犯多多见谅...</h4>
+    </div>
+</div>
+<div id="about"  style="padding: 40px 40px">
+    <div class="row">
+        <div class="col-md-3 hidden-sm" id="spy">
+            <ul  class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="80" style="box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;">
+                <li class=""><a href="#t1">机构介绍</a> </li>
+                <li><a href="#t2">工作室成员</a></li>
+                <li><a href="#t3">加入我们</a> </li>
+            </ul>
+        </div>
+        <div class="col-md-9 about">
+            <h3 id="t1">机构介绍</h3>
+            <p class="text-muted">之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在不同文件夹下调用相同文件不方便。所以有了模块化设计：即不新建应用文件夹，而是生成一个当前应用下的新模块(默认的是Home模块)。之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在不同文件夹下调用相同文件不方便。所以有了模块化设计：即不新建应用文件夹，而是生成一个当前应用下的新模块(默认的是Home模块)。</p>
+            <h3 id="t2">工作室成员</h3>
+            <p class="text-muted">之前讲的之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在前后台之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在不同文件夹下调用相同文件不方便。所以有了模块化设计：即不新建应用文件夹，而是生成一个当前应用下的新模块(默认的是Home模块)。之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在不同文件夹下调用相同文件不方便。所以有了模块化设计：即不新建应用文件夹，而是生成一个当前应用下的新模块(默认的是Home模块)。</p>
+            <h3 id="t3">加入我们</h3>
+            <p class="text-muted">之前讲的之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在不同文件夹下调用相同文件不方便。所以有了模块化设计：即不新建应用文件夹，而是生成一个当前应用下的新模块(默认的是Home模块)。之前讲的前后台可以分别建立(生成)应用文件夹，但是有时候我们同一个网站前后端有很多资源是共享的，在不同文件夹下调用相同文件不方便。所以有了模块化设计：即不新建应用文件夹，而是生成一个当前应用下的新模块(默认的是Home模块)。</p>
+        </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container">
+        <p>联系校长 | 举报导师 | 版权投诉</p>
+        <p>京备案1235436546542号</p>
+    </div>
+</footer>
+</body>
+</html>

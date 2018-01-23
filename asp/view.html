@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>View</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <style>
+        pre{
+            width: 100%;
+            overflow-x: visible;
+            font-size: 18px;
+            color: #006600;
+        }
+        kbd{
+            font-size: 22px;
+        }
+        b{
+            color:purple;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<pre>
+<h1>View</h1>
+    <b>☆HttpHelper</b>：
+
+        模型各部分：
+        TextBox(For)、Editor(For)、Display(Name)(For)、LabelFor()
+
+        模型全部：
+        DisplyForModel()、EditorForModel()
+
+        模型其他：
+        RadioButtonFor(m=>m.字段,value)、CheckBoxFor(m=>返回bool)//也适用于集合Model
+
+    <b>☆Urlhelper</b>：
+
+        Content(虚路径)：获得相对路径(Server.Mappath(虚或相对)获得绝对路径)
+
+    <b>☆Html转码</b>:
+
+        可以用Html.Raw(string)让其按照源码。Html.Encode(string)转码为ltgt
+
+    <b>☆母版页</b>:
+
+        layout指定这个模板文件，母版中@RenderBody()来站位页面填充内容部分。
+        viewstart文件指定了模板，默认按照这个文件来，可以自己加layout=null取消默认模板。
+
+    <b>☆错误页面</b>：
+
+        配置文件中system.web下&lt;customErrors mode="On"&gt;&lt;/customErrors&gt;开启。
+        然后再shared文件夹添加Error.cshtml。有没有捕捉的错误，就会跳转到这个页面。
+        原因是默认在全局添加了过滤器handleerrorattribute.以上是为捕捉异常才会跳转，
+        如果是404是不会跳转的：
+        应付404：写好一个行为，然后在配置文件的customeError中加入&lt;error statusCode="404" redirect="~/xx/xx"/&gt;
+
+    <b>☆Ajax获取View</b>:
+
+        @Ajax.ActionLink("text","ajaxaction",new AjaxOptions() {
+
+            HttpMethod ="GET",
+
+            UpdateTargetId ="target",
+
+            InsertionMode=InsertionMode.Replace,
+
+            LoadingElementId="hideimg"//这个dom元素是默认写成hide
+        });
+</pre>
+</div>
+</body>
+</html>

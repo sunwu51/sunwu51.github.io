@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>other</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        b{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1>Redis的其他操作</h1>
+        </div>
+        <h2 id="o1">其他shell</h2>
+        <pre class="">
+        keys pattern查询匹配的key
+
+        <kbd>exists key</kbd>查询是否存在key
+        <kbd>del key</kbd>删除一个key
+
+        expire key time 设置已存在的键的过期时间
+
+        <kbd>select 0</kbd> 选择数据库0一共是0-15这些数据库，默认是0数据库
+
+        move key 1 将key移动到数据库1中
+
+        persist key 移除已经设置了的过期时间
+
+        rename key1 key2 将key1重命名为key2
+
+        type key 查看key的数据类型
+
+        dbsize 显示本数据库下的键的个数
+
+        <kbd>flushdb</kbd> 清空当前数据库
+
+        <b>常用的针对于所有数据类型的shell操作，如检查key是否存在，移除key，清空整个数据库等</b>
+        </pre>
+        <h2 id="o2">安全性</h2>
+        <pre>
+        <b>设置密码：配置文件中找到requirepass 取消注释然后添加密码到这个地方，重新启动.
+
+        登录的时候用auth xxxx然后就可以操作了</b>
+        </pre>
+        <h2 id="o3">分布式</h2>
+        <pre>
+        <b>主从模式：
+            主机不需要配置，从机调整配置文件slaveof部分来指定主服务器的ip和端口，masterauth xxx指定主机密码，没有则忽略</b>
+        </pre>
+        <h2 id="o4">事务</h2>
+        <pre>
+            multi开始事务 exec顺序执行全部 discard取消事务，事务回滚
+
+            但是事务的执行有缺陷，就是出错的时候不会回滚，只执行正确的地方，错误的就不管了。
+
+            只能通过discard进行回滚，未能捕捉执行过程中的错误，这是一个缺陷。因而只能执行简单的事务。
+
+            watch key监视key，监视过程中有其他终端进行了修改这个key，那么本终端是无法对key进行修改操作，watch只能通过unwatchdiscard进行撤销
+
+            <b>redis的事务是鸡肋般的存在，少用！</b>
+        </pre>
+        <h2 id="o5">持久化</h2>
+        <pre>
+            快照方式(默认)：有个900s超过一次修改会保存一次，300s超过10次，60s超过10000次都会保存。
+            但是问题在于在这个间隔内宕机了就会丢掉数据。
+
+            aof方式，则是每次修改进行一次保存，修改配置文件appendonly 改为yes，然后修改appendfsync的参数有三种选择，立即，1s和no，aof文件存储的是操作不是数据本身。
+
+        </pre>
+    </div>
+</body>
+</html>

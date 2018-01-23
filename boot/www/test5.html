@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body style="margin: 50px">
+    <ul class="nav nav-pills">
+        <li class="active"><a href="#h5" class="nav navbar-nav" data-toggle="tab">HTML5</a></li>
+        <li><a href="#jq" class="nav navbar-nav" data-toggle="tab">Jquery</a></li>
+        <li><a href="#an" class="nav navbar-nav" data-toggle="tab">AngularJS</a></li>
+        <li><a href="#mvc" class="nav navbar-nav" data-toggle="tab">MVC</a></li>
+    </ul>
+    <ul id="nav" class="nav nav-tabs">
+            <li class="active"><a href="#h5" class="nav navbar-nav">HTML5</a></li>
+            <li><a href="#jq" class="nav navbar-nav">Jquery</a></li>
+            <li><a href="#an" class="nav navbar-nav">AngularJS</a></li>
+            <li><a href="#mvc" class="nav navbar-nav">MVC</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade in active"  id="h5">
+            <p>h5的相关介绍</p>
+        </div>
+        <div class="tab-pane fade"  id="jq">
+            <p>jq的相关介绍</p>
+        </div>
+        <div class="tab-pane fade"  id="an">
+            <p>angular的相关介绍</p>
+        </div>
+        <div class="tab-pane fade"  id="mvc">
+            <p>MVC的相关介绍</p>
+        </div>
+    </div>
+    <div><a id="a" href="#" data-toggle="tooltip" data-html="true" class="" title="<h2>提示</h2>">Link</a>
+        <button id="a2" data-toggle="tooltip" title="<h2>提示</h2>">Link</button>
+    </div>
+<script>
+    $("#a").tooltip();
+    $("#a2").tooltip({
+        'html':true
+    });
+    $("#nav a").click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>
+</body>
+</html>

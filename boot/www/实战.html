@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        .tab-h2{
+            font-size: 30px;
+            color:#0059b2;
+            text-align: center;letter-spacing: 1px;
+        }
+        .tab-p{
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 1px;
+            color: #999;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        .tab1{
+            margin: 30px 0;
+            color: #666;
+        }
+        .col{
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--顶部导航栏-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand" style="padding-top: 0"><img style="height: 50px" src="bootstrap-logo.png"/></div>
+                <button class="navbar-toggle" data-toggle="collapse" data-target="#mycollapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="mycollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a> </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-list"></span> 资讯</a> </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-fire"></span> 案例</a> </li>
+                    <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> 关于</a> </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--轮播图-->
+    <div class="carousel slide" id="maincarousel" data-ride="carousel" data-interval="1222000" style="margin-top: 50px">
+        <ol class="carousel-indicators" style="left: 80%">
+            <li data-toggle="carousel" data-target="#maincarousel" data-slide-to="0" class="active"></li>
+            <li data-toggle="carousel" data-target="#maincarousel" data-slide-to="1"></li>
+            <li data-toggle="carousel" data-target="#maincarousel" data-slide-to="2"></li>
+            <li data-toggle="carousel" data-target="#maincarousel" data-slide-to="3"></li>
+            <li data-toggle="carousel" data-target="#maincarousel" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active"><img style="margin: auto" src="bjtu1.jpg"></div>
+            <div class="item"><img style="margin: auto" src="bjtu2.jpg"></div>
+            <div class="item"><img style="margin: auto" src="bjtu3.jpg"></div>
+            <div class="item"><img style="margin: auto" src="bjtu4.jpg"></div>
+            <div class="item"><img style="margin: auto" src="bjtu5.jpg"></div>
+        </div>
+        <a href="#maincarousel" data-slide="prev" class="carousel-control left" ><span class="glyphicon glyphicon-chevron-left"></span> </a>
+        <a href="#maincarousel" data-slide="next" class='carousel-control right'><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+<!--主体内容部分-->
+    <div class="container">
+        <h2 class="tab-h2">[北京交通大学学科简介]</h2>
+        <p class="tab-p">据说交大的校门是亚洲最高！</p>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col">
+            <div class="media" >
+                <div class="media-left"><a href="#"><img style="max-width: 100px" src="logo1.png"> </a> </div>
+                <div class="media-body"><h3 class="media-heading">电子信息工程学院</h3>
+                    <p class="text-muted">电信学院，师资力量雄厚。有男神陈后金坐镇，帅你一脸！还有很多很牛的实验室，比如什么IP组啊，无线组啊，有线组啊。额还有自动化的国家重点实验室！</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col">
+            <div class=" media">
+                <div class="media-left"><a href="#"><img style="max-width: 100px" src="logo2.png"> </a> </div>
+                <div class="media-body"><h3 class="media-heading">交通运输学院</h3>
+                    <p class="text-muted">北京交大一看名字就知道交通肯定是个好专业。呵呵。毕业就分配交警工作，直接就是副处级。根本不愁赚不到钱。当然这肯定是开玩笑的，三分靠颜值，七分靠打拼的道理大家都懂。</p></div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col">
+            <div class="media">
+                <div class="media-left"><a href="#"><img style="max-width: 100px" src="logo3.png"> </a> </div>
+                <div class="media-body"><h3 class="media-heading">计算机学院</h3>
+                    <p class="text-muted">懒得编了。复制一份电信学院，师资力量雄厚。有男神陈后金坐镇，帅你一脸！还有很多很牛的实验室，比如什么IP组啊，无线组啊，有线组啊。额还有自动化的国家重点实验室！</p>
+                </div>
+            </div></div>
+            <div class="col-lg-4 col-md-6 col">
+            <div class="media">
+                <div class="media-left"><a href="#"><img style="max-width: 100px" src="logo4.png"> </a> </div>
+                <div class="media-body"><h3 class="media-heading">经管学院</h3>
+                    <p class="text-muted">同上，经管妹子应该比较好看吧。北京交大一看名字就知道交通肯定是个好专业。呵呵。毕业就分配交警工作，直接就是副处级。根本不愁赚不到钱。当然这肯定是开玩笑的，三分靠颜值，七分靠打拼的道理大家都懂。</p></div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col">
+            <div class=" media">
+                <div class="media-left"><a href="#"><img style="max-width: 100px" src="logo1.png"> </a> </div>
+                <div class="media-body"><h3 class="media-heading">电子信息工程学院</h3>
+                    <p class="text-muted">电信学院，师资力量雄厚。有男神陈后金坐镇，帅你一脸！还有很多很牛的实验室，比如什么IP组啊，无线组啊，有线组啊。额还有自动化的国家重点实验室！</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col">
+            <div class=" media">
+                <div class="media-left"><a href="#"><img style="max-width: 100px" src="logo2.png"> </a> </div>
+                <div class="media-body"><h3 class="media-heading">交通运输学院</h3>
+                    <p class="text-muted">北京交大一看名字就知道交通肯定是个好专业。呵呵。毕业就分配交警工作，直接就是副处级。根本不愁赚不到钱。当然这肯定是开玩笑的，三分靠颜值，七分靠打拼的道理大家都懂。</p></div>
+            </div>
+                </div>
+        </div>
+
+    </div>
+</body>
+</html>

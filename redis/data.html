@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Redis Data</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        b{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>Redis数据五大存储类型</h1>
+    </div>
+    <h2 id="string">String</h2>
+    <pre>
+        <kbd>set key value</kbd>进行存储，不用加双引号
+
+        <kbd>get key</kbd>获取value
+
+        append k v追加
+
+        <kbd>setnx key value</kbd>如果key不存在才进行存储
+
+        setex key time value设置键值对，并指定存储的时间是time秒
+
+        setrange key num value设置key对应的value的第num个字符串开始替换为value，如果源字符串更长则保留长出的部分。
+
+        <kbd>mset k1 v1 k2 v2</kbd>批量设置如果有一个不成功则全都不设置。
+
+        msetnx批量设置不存在的key，如果有任何一个已经存在了泽全都不进行设置
+
+        getset k v设置一个新值并返回一个旧的值，如果没有旧值，新的值也会被设值。
+
+        getrange k start end获取部分字符串。
+
+        <kbd>mget k1 k2</kbd>批量获取
+
+        incr k使得k对应的value执行+1操作，是用于保存的字符串是纯数字的情况。如果k不存在认为是0，并在执行后变成1
+
+        <kbd>incrby k num</kbd>使得k对应的value执行+num操作，num也可以是负值。
+
+        decr decrby与之相对应。
+
+        strlen k 获取k对应value的长度。
+
+        <b>主要记住(m)set (m)get 以及incrby的用法；String类型主要用于键值对的存储，建立快速映射</b>
+    </pre>
+    <h2 id="hash">Hash</h2>
+    <pre>
+        <kbd>hset key field value</kbd>设置对象key的field字段为value，可以用来存储对象，相当于模拟了sql的表
+
+        hsetnx key field value;
+
+        <kbd>hmset key f1 v1 f2 v2;</kbd>
+
+        <kbd>hmget key f1 f2;</kbd>
+
+        hincrby key f1 num;
+
+        hexists key field;判断是否存在这个字段
+
+        hlen key;返回字段总数
+
+        <kbd>hgetall key;</kbd>返回所有字段和值
+
+        hdel key f1;删除f1字段
+
+        <kbd>hkeys key;</kbd>返回所有字段名字
+
+        <kbd>hvals key;</kbd>返回所有字段的值
+
+        <b>主要记住h(m)set h(m)get hvals hgetall的用法；Hash类型主要用于Json对象的存储，近似的实现sql表结构</b>
+    </pre>
+    <h2 id="list">List</h2>
+    <pre>
+        <kbd>lpush listname v1 v2</kbd>链表头部压入元素v1 v2
+
+        <kbd>lrange listname 0 -1</kbd>链表取出元素0到-1个-1代表最后一个，倒着取出
+
+        <kbd>rpush</kbd>是尾部压人元素，还用lrange取出的话就是正序的了，因为是从底部压入的。
+
+        linsert listname BEFORE/AFTER 原值 添加值，这里的before和after是从头到尾来看的前后
+
+        lset listname num value 重新设置list的第num个元素为value
+
+        <kbd>lrem listname num value</kbd> 在链表中删除num个和value相同的值，num为0代表全部删除
+
+        ltrim listname start end 除了这个范围内的元素都删除掉
+
+        <kbd>lpop listname</kbd> 从链表的头部弹出一个元素，弹出就是返回这个值并删除这个值
+
+        <kbd>rpop listname</kbd> 从链表的尾部弹出一个元素
+
+        rpoplpush list1 list2 从list1的尾部移出并添加到list2
+
+        lindex listname index 取出第index个元素
+
+        llen listname 返回list中所有元素的个数
+
+        <b>主要掌握list实现链表和队列的操作lpush rpush lpop rpop操作，List主要用于实现字符串数据的链式存储</b>
+    </pre>
+    <h2 id="set">Set</h2>
+    <pre>
+        <kbd>sadd setname value</kbd>	集合中不允许有重复的值插入移有值会返回0
+
+        <kbd>smembers setname</kbd>获取所有元素
+
+        <kbd>srem setname value</kbd>删除元素
+
+        spop setname 随机返回并删除一个值，随机的
+
+        sdiff set1 set2 取出两个集合中第一个集合相对于第二个集合的差集(即选出的元素都是set1的)
+
+        sdiffstroe set3 set1 set2取出差集后存储到set3
+
+        sinter set1 set2 返回交集
+
+        sinterstore set3 set1 set2
+
+        sunion set1 set2 返回并集
+
+        sunionstore set3 set1 set2
+
+        smove set1 set2 value 将value从set1移动到set2
+
+        <kbd>scard setname</kbd>返回元素的个数
+
+        <kbd>sismember setname value</kbd> 测试元素是否属于该集合
+
+        srandmember setname 随机返回一个元素
+
+        <b>主要记忆添加删除和展示的操作，sadd srem smembers以及sismember；Set无序集合用于存储，先后添加的地位平等的东西，如好友</b>
+    </pre>
+    <h2 id="zset">ZSet</h2>
+    <pre>
+        zadd setname order value 添加元素指定序号，如已存在则更新序号
+
+        zrange setname start end [withscores]输出元素可加参数为是否显示序号
+
+        zrem setname value 直接删除元素，不影响其他
+
+        zincrby setname num value 增加value元素的序号+num 并不是元素自己
+
+        zrank setname value 返回元素的索引而不是序号，索引从0开始，序号是自己定义的
+
+        zrevrank和上面的一样只不过是从大到小序号排的
+
+        zrevrange一样的道理
+
+        zrangebyscore setname start end [withscores]取出序号在这个范围的元素，zrange是index为范围内的元素
+
+        zcount用法同上返回的是个数
+
+        zcard setname 返回集合的元素个数
+
+        zremrangebyrank setname start end 删除索引在此范围的元素
+
+        zremrangebyscore setname start end 删除序号在此范围的元素
+
+        <b>zset是set的升级对数据进行了人为排序，每一个数据有一个潜在的序号。个人人为用的不多，所以没有重点的标注</b>
+    </pre>
+</div>
+<footer>
+    <div class="container-fluid">
+        <center class="text-muted" style="margin-top: 20px">本站点基于BootStrap和Jquery布置前端页面，由Apache和NodeJS服务器驱动，并借助ThinkPHP构建服务端程序</center>
+        <h3 style="text-align: center;margin-top: 20px">如果你有什么建议和问题记得联系我：sunwu51@126.com</h3>
+    </div>
+</footer>
+</body>
+</html>

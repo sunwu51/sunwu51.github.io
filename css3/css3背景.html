@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3背景</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }code{
+             font-size: 18px;
+         }
+        .row{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>background基本性质</b></h2>
+                <p>可以加的参数有<b class="text-danger">color</b>，图片的<b class="text-danger">url</b>，是否<b class="text-danger">循环</b>图片，是否<b class="text-danger">悬停</b>图片，还有图片出现<b class="text-danger">位置</b>。</p>
+                <p>其中不写的话，默认repeat循环，默认不悬停，默认出现位置是左上(left top)</p>
+                <!--Background-origin:border-box/padding-box/content-box分别使背景图片起始点无视边框/内距和只有内容部分是背景。-->
+                <!--Background-size：x y或者cover/contain分别是内切外切-->
+                <!--Background-clip：border-box/padding-box/content-box分别使背景图片内容无视边框/内距和只有内容部分是背景。-->
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="demo2" style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code>background:url('logo1sm.jpg') no-repeat center top</code>
+                <div style="color:green;height:200px;border: solid 1px;border-radius: 30px;background:url('logo1sm.jpg') no-repeat center top;">
+                    <h2>加载了此图为背景，不循环显示，显示位置是中间靠上</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>background-origin属性</b></h2>
+                <p><b class="text-danger">border-box/padding-box/content-box</b>分别使背景图片<b class="text-danger">起始点</b>在边框/内距/内容左上。
+                <!--Background-origin:border-box/padding-box/content-box分别使背景图片起始点无视边框/内距和只有内容部分是背景。-->
+                <!--Background-size：x y或者cover/contain分别是内切外切-->
+                <!--Background-clip：border-box/padding-box/content-box分别使背景图片内容无视边框/内距和只有内容部分是背景。-->
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info" data-toggle="collapse" data-target="#collapse">示例</h2>
+                <button class="btn btn-default" data-toggle="collapse" data-target="#collapse">展开/折叠</button>
+                <div class="collapse" id="collapse">
+                    <code>background-origin:border-box</code>
+                    <div style="color:green;border: 50px dashed black;padding: 30px;background:url('logo1.JPG') no-repeat;background-origin: border-box">
+                        <h2>此段文字是content部分，周围一圈是padding，黑色的是边框部分</h2>
+                    </div>
+                    <code>background-origin:padding-box</code>
+                    <div style="color:green;border: 50px dashed black;padding: 30px;background:url('logo1.JPG') no-repeat;background-origin: padding-box">
+                        <h2>此段文字是content部分，周围一圈是padding，黑色的是边框部分</h2>
+                    </div>
+                    <code>background-origin:content-box</code>
+                    <div style="color:green;border: 50px dashed black;padding: 30px;background:url('logo1.JPG') no-repeat;background-origin: content-box">
+                        <h2>此段文字是content部分，周围一圈是padding，黑色的是边框部分</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>background-size属性</b></h2>
+                <p><b class="text-danger">x y或者cover/contain分别是内切外切</b>
+                    <!--Background-origin:border-box/padding-box/content-box分别使背景图片起始点无视边框/内距和只有内容部分是背景。-->
+                    <!--Background-size：x y或者cover/contain分别是内切外切-->
+                    <!--Background-clip：border-box/padding-box/content-box分别使背景图片内容无视边框/内距和只有内容部分是背景。-->
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <button class="btn btn-default" data-toggle="collapse" data-target="#collapse2">展开/折叠</button>
+                <div class="collapse" id="collapse2">
+                    <code>background-size：200 50</code>
+                    <div style="color:green;margin:5px 0;padding:10px;border: solid 1px;background: url('logo1sm.jpg') no-repeat;background-size: 200px 50px">
+                        <h2>通过自定义大小可以拉伸图片得到想要的效果</h2>
+                    </div>
+                    <code>background-size：100% 100%</code>
+                    <div style="color:green;margin:5px 0;padding:10px;border: solid 1px;background: url('logo1sm.jpg') no-repeat;background-size: 100% 100%">
+                        <h2>通过自定义大小可以拉伸图片得到想要的效果</h2>
+                    </div>
+                    <code>background-size：cover</code>
+                    <div style="color:green;margin:5px 0;padding:10px;border: solid 1px;background: url('logo1sm.jpg') no-repeat;background-size: cover">
+                        <h2>cover就是图片调整大小直到完全包含div</h2>
+                    </div>
+                    <code>background-size：contain</code>
+                    <div style="color:green;margin:5px 0;padding:10px;border: solid 1px;background: url('logo1sm.jpg') no-repeat;background-size: contain">
+                        <h2>contain就是图片调整大小直到完全被div包含</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>background-clip属性</b></h2>
+                <p><b class="text-danger">border-box/padding-box/content-box</b>分别使背景图片<b class="text-danger">展示</b>在边框/内距/内容左上。
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info" data-toggle="collapse" data-target="#collapse">示例</h2>
+                <button class="btn btn-default" data-toggle="collapse" data-target="#collapse3">展开/折叠</button>
+                <div class="collapse" id="collapse3">
+                    <code>background-origin:border-box</code>
+                    <div style="color:green;border: 50px dashed black;padding: 30px;background:url('logo1sm.jpg') no-repeat;background-size:150px 150px;background-origin:border-box;background-clip: border-box">
+                        <h2>此段文字是content部分，周围一圈是padding，黑色的是边框部分</h2>
+                    </div>
+                    <code>background-origin:padding-box</code>
+                    <div style="color:green;border: 50px dashed black;padding: 30px;background:url('logo1sm.jpg') no-repeat;background-size:150px 150px;background-origin:border-box;background-clip: padding-box">
+                        <h2>这三个效果是配合background-origin:boder-box做的，即起点是boder，否则效果不明显</h2>
+                    </div>
+                    <code>background-origin:content-box</code>
+                    <div style="color:green;border: 50px dashed black;padding: 30px;background:url('logo1sm.jpg') no-repeat;background-size:150px 150px;background-origin:border-box;background-clip: content-box">
+                        <h2>完整样式background:url('logo1sm.jpg') no-repeat;background-size:150px 150px;background-origin:border-box;background-clip: content-box</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

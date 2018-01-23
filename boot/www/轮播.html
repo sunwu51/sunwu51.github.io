@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: #000066">
+<div id="main" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#main" data-slide-to="0" class="active"></li>
+        <li data-target="#main" data-slide-to="1"></li>
+        <li data-target="#main" data-slide-to="2"></li>
+    </ol>
+    <div style="width: 800px" class="carousel-inner container">
+        <div class="item active" style="width: 800px">
+            <img style="width: 800px" src="1.png" alt="第一张"/>
+            <div class="carousel-caption">
+                <p>第一张图的相关介绍</p>
+            </div>
+        </div>
+        <div class="item" style="width: 800px">
+            <img style="width: 800px" src="1.png" alt="第二张"/>
+        </div>
+        <div class="item" style="width: 800px">
+            <img style="width: 800px" src="1.png" alt="第三张"/>
+        </div>
+    </div>
+    <a href="#main" data-slide="prev" class="carousel-control left">&laquo;</a>
+    <a href="#main" data-slide="next" class="carousel-control right">&raquo;</a>
+    <a href="#main"></a>
+    <script>
+        $("#main").carousel({
+            interval:1000,
+        });
+    </script>
+</div>
+</body>
+</html>

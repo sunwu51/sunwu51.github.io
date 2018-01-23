@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3边框</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        code{
+            font-size: 18px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }
+        .row{
+            margin-top: 30px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>border基础属性</b></h2>
+                <p>style width和color，三个属性，不分先后都可以识别</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="e1" style="border: solid 1px;">
+                <h2  class="text-info">示例</h2>
+                <code>border:red 5px solid</code><br>
+                <div style="margin:15px;padding: 10px;border:red 5px solid ">
+                    border的基础三属性
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>border-image</b></h2>
+                <p>需先设置border属性</p>
+                <p>四个参数为图片地址，九宫格切分深度，水平重复还是拉伸，竖直重复还是拉伸。如url(1.jpg) 27 repeat stretch，深度也可以细化为4个数值。Repeat/round/stretch 三个选择，round类似repeat但是在接口地方进行圆滑处理。</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2  class="text-info">示例</h2>
+                <code>border-image:url(logo1.jpg) 27 repeat stretch</code><br>
+                <div style="margin:15px;padding: 10px;border:47px solid;border-image:url(logo1.JPG) 47 repeat stretch">
+                    border-image示例
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>border-radius</b></h2>
+                <p>需先设置border属性</p>
+                <p>可以使用1-8个参数分别去调整4个角八个方向，一般只需要一个值，统一进行圆滑处理。</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2  class="text-info">示例</h2>
+                <code>border-radius:30px</code><br>
+                <div style="margin:15px;padding: 10px;border:1px solid;border-radius:30px">
+                    border-radius示例
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>box-shadow</b></h2>
+                <p>参数：不写/insert 右侧阴影厚度 下侧阴影厚度 模糊厚度 阴影颜色</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2  class="text-info">示例</h2>
+                <code>box-shadow:10px 10px 8px #ccc</code><br>
+                <div style="margin:15px;padding: 10px;border:1px solid;border-radius:30px;box-shadow:10px 10px 8px #ccc">
+                    box-shadow示例
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

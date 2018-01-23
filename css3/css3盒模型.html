@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>css3盒模型</title>
+    <link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css">
+    <script src="bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <style>
+        body>div>div>div>div{
+            padding: 10px;
+        }
+        h2~p{
+            margin-left: 40px;
+            line-height: 2;
+        }code{
+             font-size: 18px;
+         }
+        .row{
+            margin-top: 15px;
+        }
+        .mar{
+            margin: 15px 0;
+        }
+        #box1,#box2{
+            border: 50px dashed ;
+            width: 300px;
+            padding: 50px;
+            background: red;
+            background-clip: content-box;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>box-sizing</b></h2>
+                <p>原生的盒模型，定义的宽度不代表她最后占用的地方大小，padding和border都会扩展她。而如果定义为border-box,则就是他最后的占用大小，padding和border会内聚</p>
+                <code style="margin-left: 30px">一定要注意bootstrap里的盒模型都是经过border-box处理的</code>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code>text-shadow:3px 3px 2px red</code><br>
+                <iframe src="css3盒模型子.html" style="width: 100%;height: 550px"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>overflow/overflow-x y</b></h2>
+                <p></p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code></code>
+                <div style="width: 300px;border: 1px solid">
+                    <div style="width: 350px;height: 50px;background: red">
+                        <span>啥也不写会撑出来</span>
+                    </div>
+                </div>
+                <div style="width: 300px;border: 1px solid;overflow: scroll">
+                    <div style="width: 350px;height: 50px;background: red;">
+                        <p>overflow: scroll添加滚动条</p>
+                        <p><b>overflow: auto</b>则是需要时出现滚动条</p>
+                    </div>
+                </div>
+                <div style="width: 300px;border: 1px solid;overflow: hidden">
+                    <div style="width: 350px;height: 50px;background: red">
+                        <span>overflow: hidden溢出部分隐藏</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>outline外轮廓</b></h2>
+                <p>外轮廓和边框很像，但是边框是和模型一部分而轮廓不是，他可以随意添加而不影响布局</p>
+                <p>参数等价于border</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code></code>
+                <div style="color:green ; width: 300px;height: 50px;outline: 20px solid yellow;">
+                    <h4 style="margin: auto 0">从这看出outline如同是html渲染完毕后用笔涂抹上的</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div  style="border: solid 1px;">
+                <h2 class="text-danger"><b>多列布局</b></h2>
+                <p>多列布局基本属性为：最小列宽和最大列数。衍生属性有列间距，列边框</p>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div style="border: solid 1px;">
+                <h2 class="text-info">示例</h2>
+                <code>columns:200px 4; column-gap:100px;/*间距*/ column-rule:1px solid;/*边框*/</code>
+                <div style="color:green ;">
+                    <div style="columns:200px 4;column-gap: 100px;column-rule: 1px solid;">
+                        <h1 style="column-span: all">这个是标题通过设置 column-span: all 进行跨列</h1>
+                        <p>【环球时报综合报道】越南《青年人报》24日报道称，一家中资工厂因在厂房砖墙上画风水图被该国广南省当局调查。
+                            　　该报称，涉事工厂是一家乙醇厂，原系越南企业，后因亏损出售给中资企业。该厂在两米高的墙上绘制了群山和几列中文模样的字符，引起当地居民好奇和担忧。有人提请当地人民委员会了解配图文字的含义。
+                            　　广南省大禄县文化信息局局长郑庞万(音)说，这家工厂此前曾申请在厂内建造一座小庙，遭当局驳回。越方初步调查认为，厂主已经违反越南广告法，因墙上展示的内容涉及迷信，也违反越南风俗传统。他表示，墙上画图或许只是工厂祈福求好运之举，但工厂负责人仍应将其铲除，否则将采取法律行动。此事件已上报至该省文化体育旅游厅。(甄翔)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

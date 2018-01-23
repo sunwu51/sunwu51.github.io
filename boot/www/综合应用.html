@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>综合应用</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <h2 class="text-info">可直接用的导航栏</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;nav class=&quot;<span class="label label-danger">navbar navbar-default navbar-fixed-top</span>&quot;&gt;
+    &lt;div class=&quot;container&quot;&gt;
+        &lt;div class=&quot;<span class="label label-danger">navbar-header</span>&quot;&gt;
+            &lt;div class=&quot;<span class="label label-danger">navbar-brand</span>&quot; style=&quot;padding-top: 0&quot;&gt;&lt;img style=&quot;height: 50px&quot; src=&quot;img/bootstrap-logo.png&quot;/&gt;&lt;/div&gt;
+            &lt;button <span class="label label-warning">class=&quot;navbar-toggle&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#mycollapse&quot;</span>&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div id=&quot;mycollapse&quot; class=&quot;<span class="label label-warning">collapse navbar-collapse</span>&quot;&gt;
+            &lt;ul class=&quot;<span class="label label-danger">nav navbar-nav navbar-right</span>&quot;&gt;
+                &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;项目实战3.html&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-home&quot;&gt;&lt;/span&gt; 首页&lt;/a&gt; &lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;资讯.html&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-list&quot;&gt;&lt;/span&gt; 资讯&lt;/a&gt; &lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;案例.html&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-fire&quot;&gt;&lt;/span&gt; 案例&lt;/a&gt; &lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;关于.html&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-question-sign&quot;&gt;&lt;/span&gt; 关于&lt;/a&gt; &lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <iframe src="导航栏.html" width="100%" height="65" style="overflow: scroll"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-info">导航栏项下拉菜单</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;ul class=&quot;nav nav-tabs&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;first&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;second&lt;/a&gt;&lt;/li&gt;
+    <span class="label label-danger">&lt;li class=&quot;dropdown&quot;&gt;</span>
+        &lt;a href=&quot;#&quot; data-toggle=&quot;dropdown&quot;&gt;
+            others&lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;subfirst&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;#&quot;&gt;subsecond&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+&lt;/ul&gt
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-6" style="">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid;height: 300px">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#">first</a></li>
+                        <li><a href="#">second</a></li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown">
+                                others<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">subfirst</a></li>
+                                <li><a href="#">subsecond</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-info">侧栏悬浮式导航栏</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="padding: 15px;padding-bottom:0px;border: 1px solid">
+                    <pre>
+&lt;body  <span class="label label-danger">data-spy=&quot;scroll&quot; data-target=&quot;#spy&quot;</span>&gt;
+......
+&lt;div class=&quot;col-md-3 hidden-sm&quot; <span class="label label-danger">id=&quot;spy&quot;</span>&gt;
+    &lt;ul  <span class="label label-info">class=&quot;nav nav-pills nav-stacked&quot; data-spy=&quot;affix&quot; data-offset-top=&quot;80&quot; </span>style=&quot;box-shadow: 8px 8px 10px #ccc;top:200px;width: 200px;background-color: white;&quot;&gt;
+        &lt;li class=&quot;&quot;&gt;&lt;a href=&quot;#t1&quot;&gt;机构介绍&lt;/a&gt; &lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#t2&quot;&gt;工作室成员&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&quot;#t3&quot;&gt;加入我们&lt;/a&gt; &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+                    </pre>
+                </div>
+            </div>
+            <div class="col-md-12" style="">
+                <iframe src="侧栏.html" width="100%" height="500" style="overflow: scroll"></iframe>
+            </div>
+        </div>
+
+
+
+        <h2 class="text-info">颜色控制</h2>
+        <div class="row">
+            <div class="col-md-12" style="">
+                <div style="background-color: #eee">
+                    eee常用的背景色
+                </div>
+                <div style="background-color: #ccc">
+                    ccc常用的阴影颜色
+                </div>
+                <div style="background-color: #999">
+                    999
+                </div>
+                <div style="background-color: #666">
+                    666
+                </div>
+                <div style="background-color: #333">
+                    333
+                </div>
+
+            </div>
+        </div>
+
+        <h2 class="text-info">阴影控制</h2>
+        <div class="row">
+            <div class="col-md-12" style="padding: 20px">
+                <span style="font-size:30px;padding:5px;margin: 20px;box-shadow: 8px 8px 10px #ccc">
+                    box-shadow: 8px 8px 10px #ccc
+                </span>
+
+            </div>
+        </div>
+
+        <h2 class="text-info">响应式CSS的写法</h2>
+        <div class="row">
+            <div class="col-md-12" style="padding: 20px">
+                <pre>
+.tab-h2{
+            font-size: 24px;
+            color:#0059b2;
+            text-align: center;letter-spacing: 1px;
+        }
+@media(min-width: 768px) {
+            .tab-h2{
+                font-size: 26px;
+                color:#0059b2;
+                text-align: center;letter-spacing: 1px;
+            }
+        }
+@media(min-width: 992px) {
+            .tab-h2{
+                font-size: 28px;
+                color:#0059b2;
+                text-align: center;letter-spacing: 1px;
+            }
+        }
+@media(min-width: 1200px){
+        }
+               </pre>
+
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

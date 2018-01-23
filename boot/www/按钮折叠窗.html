@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>按钮组折叠窗</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.min.css"/>
+    <script src="../bootstrap-3.3.5-dist/js/jquery-1.10.2.min.js"></script>
+    <script src="../bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="btn-group" data-toggle="buttons">
+    <div class="btn btn-default active"><input name="sex" type="radio" checked>male</div>
+    <div class="btn btn-default"><input name="sex" type="radio">famale</div>
+</div>
+<div class="btn-group" data-toggle="buttons">
+    <div class="btn btn-default active"><input name="like" type="checkbox" checked>football</div>
+    <div class="btn btn-default"><input name="like" type="checkbox">basketball</div>
+    <div class="btn btn-default"><input name="like" type="checkbox">table tennis</div>
+    <div class="btn btn-default"><input name="like" type="checkbox">bigball</div>
+</div>
+<button class="btn btn-default" data-toggle="collapse" data-target="#div1">折叠</button>
+<div id="div1" class="collapse">
+    <div class="well">own包裹的，因而这三个都不用，modal要用来制定弹出的div。trigger是指弹出的触发事件有click hover等。Placement是显示出来的地方，top left等。Html是是否对html代码显示。这几个框的共性，$(xxx).zzz(‘show’)可以显示zzz指modal tooltip等show可以换hide toggle。同时$(xxx).on(zzz,function)zzz指show-bs-modal这样的事件。警告框：之前讲过，css:alert alert-success 配合span.close data-dismiss=alert关闭按钮。这个和之前的不一样的是$().alert(‘close’)是隐藏按钮和折叠窗插件按钮实现点击是按下，再次点击是抬起的效果只需加data-toggle=button。这种效果就可以用按钮来进行单选或者多选。实现方
+    </div>
+</div>
+
+
+<div class="panel-group" id="pf">
+    <div class="panel panel-default">
+        <div class="panel-heading" data-parent="#pf" class="panel-title"href="#c1" data-toggle="collapse"  style="cursor: pointer">
+            <h1>First</h1>
+        </div>
+    </div>
+    <div id="c1" class="panel-collapse collapse in">
+        <div class="panel panel-body"  >
+            第一部分内容
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class=" panel-heading panel-title" data-parent="#pf"  href="#c2" data-toggle="collapse" style="cursor: pointer">
+            <h1>Second</h1>
+        </div>
+    </div>
+    <div id="c2" class="panel-collapse collapse">
+        <div class="panel panel-body"  >
+            第二部分内容
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading" class="panel-title"  data-parent="#pf" href="#c3" data-toggle="collapse" style="cursor: pointer">
+            <h1 >Third</h1>
+        </div>
+    </div>
+    <div id="c3" class="panel-collapse collapse">
+        <div class="panel panel-body"  >
+            第三部分内容
+        </div>
+    </div>
+</div>
+<script>
+</script>
+</body>
+</html>
