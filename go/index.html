@@ -1,4 +1,7 @@
-<!DOCTYPE html><html><head><title>gin</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+<!DOCTYPE html><html><head><title>gin</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+
+</style></head><body><div id='preview-contents' class='note-content'>
                         
                     
 
@@ -12,7 +15,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-keyword">package</span> main
+<pre class="prettyprint hljs-light"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-keyword">package</span> main
 </div><div class="hljs-line">
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> (
 </div><div class="hljs-line">    <span class="hljs-string">"github.com/gin-gonic/gin"</span>
@@ -37,7 +40,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//获取请求头,如果没有则返回的是空字符串而不是nil</span>
+<pre class="prettyprint hljs-light"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//获取请求头,如果没有则返回的是空字符串而不是nil</span>
 </div><div class="hljs-line">c.GetHeader(<span class="hljs-string">"key"</span>)
 </div><div class="hljs-line">
 </div><div class="hljs-line"><span class="hljs-comment">//写入响应头,</span>
@@ -50,7 +53,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//路由参数    get /user/1 ==&gt;1</span>
+<pre class="prettyprint hljs-light"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//路由参数    get /user/1 ==&gt;1</span>
 </div><div class="hljs-line">r.GET(<span class="hljs-string">"/user/:id"</span>,<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(c *gin.Context)</span></span>{
 </div><div class="hljs-line">    c.Param(<span class="hljs-string">"id"</span>)
 </div><div class="hljs-line">})
@@ -80,7 +83,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//纯文本</span>
+<pre class="prettyprint hljs-light"><code class="language-go hljs"><div class="hljs-line"><span class="hljs-comment">//纯文本</span>
 </div><div class="hljs-line">c.String(<span class="hljs-number">200.</span><span class="hljs-string">"hello world"</span>)
 </div><div class="hljs-line">
 </div><div class="hljs-line"><span class="hljs-comment">//json类型 amap是map[string] interface{}类型，或者用gin.H构建</span>

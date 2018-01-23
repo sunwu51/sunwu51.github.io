@@ -1,4 +1,7 @@
-<!DOCTYPE html><html><head><title>React</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+<!DOCTYPE html><html><head><title>React</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
                         
                     
 
@@ -20,9 +23,13 @@
 </div>
 </div>
 
+<p>续篇：<a href="./react2.html" target="_blank">react中路由和按需加载问题</a></p>
+
 <h1 id="1-组件基本">1 组件基本</h1>
 
-<pre class="prettyprint hljs-dark"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
 </div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hello</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
 </div><div class="hljs-line">  render () {
@@ -33,11 +40,15 @@
 </div><div class="hljs-line">}
 </div></code></pre>
 
+
+
 <h1 id="2-生命周期">2 生命周期</h1>
 
 <p>Mounting</p>
 
-<pre class="prettyprint hljs-dark"><code class="hljs delphi"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-params">(props)</span>                             <span class="hljs-title">Before</span> <span class="hljs-title">rendering</span> #
+
+
+<pre class="prettyprint hljs-light"><code class="hljs delphi"><div class="hljs-line"><span class="hljs-function"><span class="hljs-keyword">constructor</span> <span class="hljs-params">(props)</span>                             <span class="hljs-title">Before</span> <span class="hljs-title">rendering</span> #
 </span></div><div class="hljs-line"><span class="hljs-title">componentWillMount</span><span class="hljs-params">()</span>                              <span class="hljs-title">Don</span>’<span class="hljs-title">t</span> <span class="hljs-title">use</span> <span class="hljs-title">this</span> #
 </div><div class="hljs-line"><span class="hljs-title">render</span><span class="hljs-params">()</span>                                                  <span class="hljs-title">Render</span> #
 </div><div class="hljs-line"><span class="hljs-title">componentDidMount</span><span class="hljs-params">()</span>              <span class="hljs-title">After</span> <span class="hljs-title">rendering</span> <span class="hljs-params">(DOM available)</span> #
@@ -47,7 +58,9 @@
 
 <p>Updating</p>
 
-<pre class="prettyprint hljs-dark"><code class="hljs haxe"><div class="hljs-line">componentWillReceiveProps (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>)           Use setState() <span class="hljs-keyword">here</span>
+
+
+<pre class="prettyprint hljs-light"><code class="hljs haxe"><div class="hljs-line">componentWillReceiveProps (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>)           Use setState() <span class="hljs-keyword">here</span>
 </div><div class="hljs-line">shouldComponentUpdate (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>, <span class="hljs-keyword">new</span><span class="hljs-type">State</span>)     Skips render() <span class="hljs-keyword">if</span> returns <span class="hljs-literal">false</span>
 </div><div class="hljs-line">componentWillUpdate (<span class="hljs-keyword">new</span><span class="hljs-type">Props</span>, <span class="hljs-keyword">new</span><span class="hljs-type">State</span>)       Can’t use setState() <span class="hljs-keyword">here</span>
 </div><div class="hljs-line">render()                                       Render
@@ -62,12 +75,16 @@
 
 <p>jsx中<code>ref</code>属性，指向dom元素本身，可直接操作dom</p>
 
+
+
 <h1 id="4-redux">4 Redux</h1>
 
 <p>React基本的count例子： <br>
 在jsfiddle中查看<a href="http://jsfiddle.net/sunwu51/3mgx04e6/" target="_blank">这个例子</a></p>
 
-<pre class="prettyprint hljs-dark"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
 </div><div class="hljs-line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Count</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">React</span>.<span class="hljs-title">Component</span> </span>{
 </div><div class="hljs-line">  <span class="hljs-keyword">constructor</span>(props){
@@ -96,7 +113,9 @@
 <p>Redux基本的count例子： <br>
 在jsfiddle中查看<a href="http://jsfiddle.net/sunwu51/nhoezL7r/" target="_blank">这个例子</a></p>
 
-<pre class="prettyprint hljs-dark"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-jsx hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> { createStore,combineReducers } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> { Provider,connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
@@ -140,7 +159,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
+<pre class="prettyprint hljs-light"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">import</span> React <span class="hljs-keyword">from</span> <span class="hljs-string">'react'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> ReactDOM <span class="hljs-keyword">from</span> <span class="hljs-string">'react-dom'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> { createStore,combineReducers,applyMiddleware  } <span class="hljs-keyword">from</span> <span class="hljs-string">'redux'</span>
 </div><div class="hljs-line"><span class="hljs-keyword">import</span> { Provider,connect } <span class="hljs-keyword">from</span> <span class="hljs-string">'react-redux'</span>
@@ -194,7 +213,9 @@
 
 <p>早期版本是react-router，4.0之后react-router-dom中的内容包括了前者，并进行了扩充，可以只使用后者。</p>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> {Link,BrowserRouter,Switch, Route} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">import</span> {Link,BrowserRouter,Switch, Route} <span class="hljs-keyword">from</span> <span class="hljs-string">'react-router-dom'</span>;
 </div><div class="hljs-line"><span class="hljs-comment">//......</span>
 </div><div class="hljs-line"><span class="hljs-comment">//......</span>
 </div><div class="hljs-line"><span class="hljs-comment">//&lt;Link to="/hi"&gt; 产生一个超链接</span>

@@ -1,6 +1,11 @@
-<!DOCTYPE html><html><head><title>SpringBoot 1.5.9</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+<!DOCTYPE html><html><head><title>SpringBoot 1.5.9</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
                         
                     
+
+
 
 <h1 id="springboot-159">SpringBoot 1.5.9</h1>
 
@@ -20,6 +25,8 @@
 </div>
 </div>
 </div>
+
+
 
 <h2 id="1-controller">1. Controller</h2>
 
@@ -41,7 +48,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line">Controller
+<pre class="prettyprint hljs-light"><code class="language-java hljs"><div class="hljs-line">Controller
 </div><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestController</span> </span>{
 </div><div class="hljs-line">    <span class="hljs-comment">//展现视图的两种写法</span>
 </div><div class="hljs-line">    <span class="hljs-comment">//1 返回值直接是ModelAndView（如下）</span>
@@ -81,9 +88,9 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line">Component
-</div><div class="hljs-line"><span class="hljs-meta">@Order</span>(<span class="hljs-number">1</span>)<span class="hljs-comment">//越小优先</span>
-</div><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Filter</span> </span>{...}
+<pre class="prettyprint hljs-light"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-function">Component
+</span></div><div class="hljs-line"><span class="hljs-title">Order</span><span class="hljs-params">(<span class="hljs-number">1</span>)</span><span class="hljs-comment">//越小优先</span>
+</div><div class="hljs-line"><span class="hljs-keyword">public</span> class TestFilter implements Filter {...}
 </div></code></pre>
 
 
@@ -94,7 +101,7 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-html hljs xml"><div class="hljs-line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<pre class="prettyprint hljs-light"><code class="language-html hljs xml"><div class="hljs-line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
 </div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">"http://www.thymeleaf.org"</span>&gt;</span>
 </div><div class="hljs-line"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
 </div><div class="hljs-line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>/&gt;</span>
@@ -116,7 +123,7 @@ entity:</p>
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-meta">@Entity</span>
+<pre class="prettyprint hljs-light"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-meta">@Entity</span>
 </div><div class="hljs-line"><span class="hljs-meta">@Data</span><span class="hljs-comment">//引入lombok</span>
 </div><div class="hljs-line"><span class="hljs-meta">@JsonIgnoreProperties</span>(value = { <span class="hljs-string">"hibernateLazyInitializer"</span>, <span class="hljs-string">"handler"</span> })
 </div><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>{
@@ -136,15 +143,13 @@ entity:</p>
 <p>repository:</p>
 
 
-<pre class="prettyprint hljs-dark"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">StudentDao</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Student</span>,<span class="hljs-title">Integer</span>&gt; </span>{
+
+<pre class="prettyprint hljs-light"><code class="language-java hljs"><div class="hljs-line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">StudentDao</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Student</span>,<span class="hljs-title">Integer</span>&gt; </span>{
 </div><div class="hljs-line">}
 </div></code></pre>
 
 
 
 <h2 id="5-springsecurity">5. SpringSecurity</h2>
-<style>
-#readme, #images_area{
-	display:block
-}</style>
-<p>参考<a href="https://gist.github.com/sunwu51/eac8f64809ad934e9513ee2887980987" target="_blank">gist</a>和仓库代码。以下直接将gits内容贴过来。</p></div></body></html><script src="https://gist.github.com/sunwu51/eac8f64809ad934e9513ee2887980987.js"></script>
+
+<p>参考<a href="https://gist.github.com/sunwu51/eac8f64809ad934e9513ee2887980987" target="_blank">gist</a>和仓库代码。以下直接将gits内容贴过来。</p></div></body></html>

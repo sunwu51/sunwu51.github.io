@@ -1,4 +1,7 @@
-<!DOCTYPE html><html><head><title>Webpack 3.5.5</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+<!DOCTYPE html><html><head><title>Webpack 3.5.5</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
                         
                     
 
@@ -6,9 +9,34 @@
 
 <h1 id="webpack-355">Webpack 3.5.5</h1>
 
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#webpack-355">Webpack 3.5.5</a><ul>
+<li><a href="#常用功能速查手册截止20171218">常用功能速查手册[截止2017/12/18]</a><ul>
+<li><a href="#1-基础配置">1 基础配置</a></li>
+<li><a href="#11-入口文件">1.1 入口文件</a></li>
+<li><a href="#12-出口文件">1.2 出口文件</a></li>
+<li><a href="#13-loader">1.3 loader</a></li>
+<li><a href="#14-构建目标">1.4 构建目标</a></li>
+<li><a href="#15-插件">1.5 插件</a></li>
+<li><a href="#2-进阶主题">2 进阶主题</a></li>
+<li><a href="#21-如何选择loader">2.1 如何选择loader</a></li>
+<li><a href="#22-如何实现代码分块">2.2 如何实现代码分块</a></li>
+<li><a href="#3-小结">3 小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
 
 
 <h2 id="常用功能速查手册截止20171218">常用功能速查手册[截止2017/12/18]</h2>
+
+
 
 <h3 id="1-基础配置">1 基础配置</h3>
 
@@ -16,7 +44,9 @@
 
 <h3 id="11-入口文件">1.1 入口文件</h3>
 
-<pre class="prettyprint hljs-dark"><code class="language-js hljs javascript"><div class="hljs-line"><span class="hljs-comment">//entry: {[entryChunkName: string]: string|Array&lt;string&gt;}</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-js hljs javascript"><div class="hljs-line"><span class="hljs-comment">//entry: {[entryChunkName: string]: string|Array&lt;string&gt;}</span>
 </div><div class="hljs-line"><span class="hljs-comment">//单入口： entry: './file.js'</span>
 </div><div class="hljs-line"><span class="hljs-comment">//多入口： entry: {app: './app.js',vendors: './vendors.js'}</span>
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> config = {
@@ -30,7 +60,9 @@
 
 <h3 id="12-出口文件">1.2 出口文件</h3>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//入口数决定了出口数</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//入口数决定了出口数</span>
 </div><div class="hljs-line">
 </div><div class="hljs-line"><span class="hljs-comment">//单入口如下</span>
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> config = {
@@ -60,7 +92,9 @@
 
 <h3 id="13-loader">1.3 loader</h3>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//loader配置前需要先安装，例如react中用babel loader需要安装：</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//loader配置前需要先安装，例如react中用babel loader需要安装：</span>
 </div><div class="hljs-line"><span class="hljs-comment">//npm install --save-dev </span>
 </div><div class="hljs-line"><span class="hljs-comment">//babel-core babel-loader babel-preset-es2015 babel-preset-react</span>
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> config={
@@ -77,7 +111,9 @@
 </div><div class="hljs-line">}
 </div></code></pre>
 
-<pre class="prettyprint hljs-dark"><code class="hljs 1c"><div class="hljs-line"><span class="hljs-comment">//或者单独配置规则，根目录下.babelrc</span>
+
+
+<pre class="prettyprint hljs-light"><code class="hljs 1c"><div class="hljs-line"><span class="hljs-comment">//或者单独配置规则，根目录下.babelrc</span>
 </div><div class="hljs-line">{
 </div><div class="hljs-line">  <span class="hljs-string">"presets"</span>: [
 </div><div class="hljs-line">    <span class="hljs-string">"react"</span>,
@@ -90,12 +126,12 @@
 
 
 
-<pre class="prettyprint hljs-dark"><code class="hljs maxima"><div class="hljs-line">npm install --<span class="hljs-built_in">save</span>-dev <span class="hljs-built_in">style</span>-loader css-loader
+<pre class="prettyprint hljs-light"><code class="hljs maxima"><div class="hljs-line">npm install --<span class="hljs-built_in">save</span>-dev <span class="hljs-built_in">style</span>-loader css-loader
 </div></code></pre>
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"> <span class="hljs-built_in">module</span>: {
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"> <span class="hljs-built_in">module</span>: {
 </div><div class="hljs-line">      <span class="hljs-attr">rules</span>: [
 </div><div class="hljs-line">        {
 </div><div class="hljs-line">          <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.(js|jsx)$/</span>,
@@ -119,7 +155,9 @@
 
 <p>默认为web即浏览器环境运行的js，可选值中node则代表nodejs环境运行的js，还有其他可选值不多介绍。</p>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">const</span> conf={
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">const</span> conf={
 </div><div class="hljs-line">    ...
 </div><div class="hljs-line">    target:<span class="hljs-string">"web"</span>
 </div><div class="hljs-line">}
@@ -131,7 +169,9 @@
 
 <p>插件直接引入，不需要写代码就会产生自己应有的作用</p>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//这里添加一个webpack自带的uglifyjs插件，用于压缩js代码</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//这里添加一个webpack自带的uglifyjs插件，用于压缩js代码</span>
 </div><div class="hljs-line"><span class="hljs-comment">//然后添加一个HtmlWebpackPlugin是帮忙生成一个index.html文件，改文件里引入了所有output的js</span>
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> webpack = <span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>);
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> HTMLWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
@@ -145,6 +185,8 @@
 </div><div class="hljs-line">  ]
 </div><div class="hljs-line">}
 </div></code></pre>
+
+
 
 <h3 id="2-进阶主题">2 进阶主题</h3>
 
@@ -162,7 +204,9 @@
 
 <p>以上loader可以通过以下指令安装</p>
 
-<pre class="prettyprint hljs-dark"><code class="hljs mipsasm"><div class="hljs-line">npm <span class="hljs-keyword">install </span>--save-dev <span class="hljs-keyword">babel-core </span><span class="hljs-keyword">babel-loader </span><span class="hljs-keyword">babel-preset-es2015 </span><span class="hljs-keyword">babel-preset-react
+
+
+<pre class="prettyprint hljs-light"><code class="hljs mipsasm"><div class="hljs-line">npm <span class="hljs-keyword">install </span>--save-dev <span class="hljs-keyword">babel-core </span><span class="hljs-keyword">babel-loader </span><span class="hljs-keyword">babel-preset-es2015 </span><span class="hljs-keyword">babel-preset-react
 </span></div><div class="hljs-line">npm <span class="hljs-keyword">install </span>--save-dev style-loader css-loader
 </div><div class="hljs-line">npm <span class="hljs-keyword">install </span>--save-dev file-loader
 </div></code></pre>
@@ -175,7 +219,9 @@
 
 <p>公共代码抽取—-<code>CommonsChunkPlugin</code></p>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//利用webpack内部模块CommonsChunkPlugin，实现提取公共js单独输出</span>
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment">//利用webpack内部模块CommonsChunkPlugin，实现提取公共js单独输出</span>
 </div><div class="hljs-line"><span class="hljs-comment">//这里name属性指定的就是output中的[name]，也可以直接指定filename属性</span>
 </div><div class="hljs-line">plugins:[
 </div><div class="hljs-line">  <span class="hljs-keyword">new</span> webpack.optimize.CommonsChunkPlugin({
@@ -193,7 +239,9 @@
 
 <p>单独剥离第三方库—-<code>CommonsChunkPlugin</code></p>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"> entry: {
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"> entry: {
 </div><div class="hljs-line">   <span class="hljs-attr">bundle</span>: <span class="hljs-string">'app'</span>
 </div><div class="hljs-line">   vendor: [<span class="hljs-string">'react'</span>]
 </div><div class="hljs-line"> }
@@ -208,7 +256,9 @@
 <p>动态加载js———<code>import</code> <br>
 webpack.config.js</p>
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">const</span> HTMLWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
+
+
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-keyword">const</span> HTMLWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
 </div><div class="hljs-line">
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> config={
 </div><div class="hljs-line">    <span class="hljs-attr">entry</span>:{
@@ -225,7 +275,9 @@ webpack.config.js</p>
 
 <p>index.js</p>
 
-<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"index"</span>)
+
+
+<pre class="prettyprint hljs-light"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"index"</span>)
 </div><div class="hljs-line">setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
 </div><div class="hljs-line">    <span class="hljs-keyword">import</span>(<span class="hljs-string">'./app'</span>).then(<span class="hljs-function"><span class="hljs-params">res</span>=&gt;</span>{
 </div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(res.value)
@@ -236,7 +288,9 @@ webpack.config.js</p>
 
 <p>app.js</p>
 
-<pre class="prettyprint hljs-dark"><code class="hljs css"><div class="hljs-line"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {<span class="hljs-attribute">value</span>:<span class="hljs-number">12345</span>,fun:()=&gt;{console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'app'</span>)}}
+
+
+<pre class="prettyprint hljs-light"><code class="hljs css"><div class="hljs-line"><span class="hljs-selector-tag">export</span> <span class="hljs-selector-tag">default</span> {<span class="hljs-attribute">value</span>:<span class="hljs-number">12345</span>,fun:()=&gt;{console.<span class="hljs-built_in">log</span>(<span class="hljs-string">'app'</span>)}}
 </div></code></pre>
 
 <p>首先加载index.html+index.js，打印index。3s后加载0-bundle.js，打印12345 app。注意这里我们并没有让他输出0-bundle.js，webpack自动从代码中判断出import这个可能加载的项，按照name=0编译出js，等待加载的时机。</p>
@@ -248,7 +302,7 @@ yarn add –dev babel-plugin-syntax-dynamic-import</p>
 
 
 
-<pre class="prettyprint hljs-dark"><code class="hljs gradle"><div class="hljs-line"> module: {
+<pre class="prettyprint hljs-light"><code class="hljs gradle"><div class="hljs-line"> module: {
 </div><div class="hljs-line">        loaders: [
 </div><div class="hljs-line">          {
 </div><div class="hljs-line">            test: <span class="hljs-regexp">/\.(js|jsx)$/</span>,<span class="hljs-comment">//匹配loaders处理文件正则表达式</span>
@@ -268,13 +322,15 @@ yarn add –dev babel-plugin-syntax-dynamic-import</p>
 </div><div class="hljs-line">    }
 </div></code></pre>
 
+
+
 <h3 id="3-小结">3 小结</h3>
 
 <p>开发中常用的webpack.config.js可以这么写：</p>
 
 
 
-<pre class="prettyprint hljs-dark"><code class="hljs typescript"><div class="hljs-line"><span class="hljs-keyword">const</span> HTMLWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
+<pre class="prettyprint hljs-light"><code class="hljs typescript"><div class="hljs-line"><span class="hljs-keyword">const</span> HTMLWebpackPlugin = <span class="hljs-built_in">require</span>(<span class="hljs-string">'html-webpack-plugin'</span>);
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> webpack =<span class="hljs-built_in">require</span>(<span class="hljs-string">'webpack'</span>)
 </div><div class="hljs-line"><span class="hljs-keyword">const</span> config={
 </div><div class="hljs-line">    entry:{
@@ -322,7 +378,7 @@ yarn add –dev babel-plugin-syntax-dynamic-import</p>
 
 
 
-<pre class="prettyprint hljs-dark"><code class="language-javascript hljs"><div class="hljs-line">babel-core
+<pre class="prettyprint hljs-light"><code class="language-javascript hljs"><div class="hljs-line">babel-core
 </div><div class="hljs-line">babel-loader
 </div><div class="hljs-line">babel-preset-es2015
 </div><div class="hljs-line"><span class="hljs-comment">//babel-preset-react</span>
